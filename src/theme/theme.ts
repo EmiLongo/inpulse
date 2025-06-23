@@ -1,16 +1,15 @@
-// src/theme.ts
-import { createTheme, Theme } from "@mui/material";
+// src/theme/theme.ts
+import { createTheme } from "@mui/material";
+import { defaultFonts } from "./textStyles";
 
 // hechas con https://m2.material.io/inline-tools/color/
 // el que dice elegido determinó la paleta
 export const greyColor = {
-  // contraste con texto negro  
   50: "#F9F9F9",
   100: "#F3F3F3",
   200: "#EBEBEB",
   300: "#DBDBDB",
   400: "#B8B8B8",
-  // a partir de aca contraste con texto blanco
   500: "#989898",
   600: "#707070",
   700: "#5C5C5C",
@@ -20,105 +19,150 @@ export const greyColor = {
 };
 
 export const primaryColor = {
-  // 50: "#f3f6fc",
-  100: "#DEE4F2",
-  200: "#C2D5FF",
-  // 300: "#93b9e6",
-  400: "#6695FF",
+  50: "#D5F7F4",
+  100: "#93E9E1",
+  200: "#00DBCC",
   // hasta aca contraste con texto negro
-  // 500: "#3478c3",
+  300: "#00C9B5",
+  400: "#00B9A3",
+  500: "#00AA90",
+  600: "#009C82",
+  700: "#008B70",
+  800: "#007B61",
   // a partir de aca contraste con texto blanco
-  600: "#0033A5",
-  // 700: "#1e4b86",
-  800: "#051242",
-  900: "#09041B",
-  // 950: "#13243e",
-  // elegido
+  900: "#005D42",
+  950: "#003D2B",
 };
 
 export const secondaryColor = {
-	// contraste con texto negro
-	// 50: "#e6f2ec",
-	// 100: "#c4dfcf",
-	// 200: "#a2cab2",
-	// 300: "#84b597",
-	400: "#FD7F16",
+  50: "#FCE7F8",
+	100: "#F6C3ED",
+	200: "#F199E3",
+	300: "#EA6CD7",
+	// hasta aca contraste con texto negro
+	400: "#E343CD",
+	500: "#D913C3",
+	600: "#C90DBD",
+	700: "#B502B6",
+	800: "#A400B0",
 	// a partir de aca contraste con texto blanco
-	// 500: "#689575",
-	600: "#8E4101",
-	// 700: "#57785e",
-	// 800: "#4e6853",
-	// 900: "#3e4c3e",
+	900: "#8400A4",
+  950: "#64007D",
+};
+
+export const terciaryColor = {
+  50: "#ECEDFF",
+	100: "#CED1FF",
+	200: "#ADB3FF",
+	300: "#8A94FF",
+	// hasta aca contraste con texto negro
+	400: "#6F79FD",
+	500: "#5B5EF3",
+	600: "#5555E7",
+	700: "#4C49D9",
+	// a partir de aca contraste con texto blanco
+	800: "#463ECC",
+	900: "#3C28B4",
+  950: "#31218B",
 };
 
 export const accentColor = {
-	// contraste con texto negro
-  50: "#faf3e1",
-  100: "#f3dfb4", // elegido
-  200: "#edca80",
-  300: "#e8b54a",
-  400: "#e4a61c",
-  500: "#e29700",
+  50: "#E9FEDB",
+  100: "#DCFFC5",
+  200: "#CDFEAC",
+	// hasta aca contraste con texto negro
+  300: "#B9F98C",
+  400: "#A3E779",
+  500: "#8ED06D",
+  600: "#7BBB62",
+  700: "#58974F",
+  800: "#3F6D38",
 	// a partir de aca contraste con texto blanco
-  600: "#df8c00",
-  700: "#da7d00",
-  800: "#d56e00",
-  900: "#cc5600",
+  900: "#355B2F",
+  950: "#294424",
 };
 
 export const errorColor = {
-  50: "#FEF2F3",
-  100: "#FDE3E4",
-  200: "#FDCBCE",
-  300: "#FAA7AB",
-  400: "#F57F85",
+  50: "#FFE2EB",
+  100: "#FFB7CD",
+  200: "#FF86AB",
+  // hasta aca contraste con texto negro
+  300: "#FF4E89",
+  400: "#FF006F",
+  500: "#FD0054",
+  600: "#EC0053", // elegido
+  700: "#D70050",
+  800: "#C3004E",
 	// a partir de aca contraste con texto blanco
-  500: "#EB4850",
-  600: "#D72B34", // elegido
-  700: "#A91E25",
-  800: "#961E24",
-  900: "#961E24",
-  950: "#430C0F",
-  // 50: "#FFE2EB",
-  // 100: "#FFB7CD",
-  // 200: "#FF86AB",
-	// // contraste con texto negro
-  // 300: "#FF4E89",
-  // 400: "#FF006F",
-  // 500: "#FD0054",
-  // 600: "#EC0053",
-  // 700: "#D70050",
-  // 800: "#C3004E",
-  // // a partir de aca contraste con texto blanco
-  // 900: "#9D004B",
-  // 950: "#700036",
-};
-
-export const customFonts = {
-  letter: {
-    wide: 1.3,
-    normal: 0.3,
-  },
-  family: {
-    alata: "Alata, impact, arial, calibri, sans-serif",
-    hindMadurai: "Hind Madurai, open-sans, arial, calibri, sans-serif",
-  },
+  900: "#9D004B",
+  950: "#700036",
 };
 
 export const theme = createTheme({
   palette: {
     primary: {
-      main: primaryColor[900],
+      main: primaryColor[900],  // Color turquesa
       light: primaryColor[200],
-      ...primaryColor,
+      dark: primaryColor[950],
+      50: primaryColor[50],
+      100: primaryColor[100],
+      200: primaryColor[200],
+      300: primaryColor[300],
+      400: primaryColor[400],
+      500: primaryColor[500],
+      600: primaryColor[600],
+      700: primaryColor[700],
+      800: primaryColor[800],
+      900: primaryColor[900],
+      950: primaryColor[950],
     },
     secondary: {
-      main: secondaryColor[400], // Color naranja
+      main: secondaryColor[400], // Color violeta
       dark: secondaryColor[600],
-      ...secondaryColor,
+      50: secondaryColor[50],
+      100: secondaryColor[100],
+      200: secondaryColor[200],
+      300: secondaryColor[300],
+      400: secondaryColor[400],
+      500: secondaryColor[500],
+      600: secondaryColor[600],
+      700: secondaryColor[700],
+      800: secondaryColor[800],
+      900: secondaryColor[900],
+      950: secondaryColor[950],
+    },
+    info: {
+      main: terciaryColor[400], // Color azul (TERTIARY)
+      dark: terciaryColor[600],
+      50: terciaryColor[50],
+      100: terciaryColor[100],
+      200: terciaryColor[200],
+      300: terciaryColor[300],
+      400: terciaryColor[400],
+      500: terciaryColor[500],
+      600: terciaryColor[600],
+      700: terciaryColor[700],
+      800: terciaryColor[800],
+      900: terciaryColor[900],
+      950: terciaryColor[950],
+    },
+    success: { 
+      main: accentColor[400], // Color verde mantis (ACCENT)
+      dark: accentColor[600],
+      50: accentColor[50],
+      100: accentColor[100],
+      200: accentColor[200],
+      300: accentColor[300],
+      400: accentColor[400],
+      500: accentColor[500],
+      600: accentColor[600],
+      700: accentColor[700],
+      800: accentColor[800],
+      900: accentColor[900],
+      950: accentColor[950],
     },
     background: {
-      // default: "#18222986",
+      default: greyColor[950],
       paper: greyColor[50],
     },
     text: {
@@ -127,16 +171,37 @@ export const theme = createTheme({
       disabled: greyColor[400],
     },
     error: {
-      main: errorColor[800],
+      main: errorColor[800], // Color rosa
       light: errorColor[400],
-      ...errorColor,
+      50: errorColor[50],
+      100: errorColor[100],
+      200: errorColor[200],
+      300: errorColor[300],
+      400: errorColor[400],
+      500: errorColor[500],
+      600: errorColor[600],
+      700: errorColor[700],
+      800: errorColor[800],
+      900: errorColor[900],
+      950: errorColor[950],
     },
     grey: {
-      ...greyColor,
+      50: greyColor[50],
+      100: greyColor[100],
+      200: greyColor[200],
+      300: greyColor[300],
+      400: greyColor[400],
+      500: greyColor[500],
+      600: greyColor[600],
+      700: greyColor[700],
+      800: greyColor[800],
+      900: greyColor[900],
+      950: greyColor[950],
     },
   },
   typography: {
     htmlFontSize: 16, // base 1rem = 16px
+    fontFamily: defaultFonts.family.textos,
   },
   components: {
     MuiButton: {
@@ -149,10 +214,10 @@ export const theme = createTheme({
         // sobreescribe estilos de botones
         root: {
           minHeight: '30px',
-          borderRadius: '4px',
-          letterSpacing: customFonts.letter.wide,
+          // borderRadius: '4px',
+          letterSpacing: defaultFonts.letter.wide,
           width: "fit-content",
-          fontFamily: customFonts.family.hindMadurai,
+          fontFamily: defaultFonts.family.textos,
           fontWeight: 500,
           textTransform: "uppercase",
         },
@@ -166,7 +231,7 @@ export const theme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          fontFamily: customFonts.family.hindMadurai,
+          fontFamily: defaultFonts.family.textos,
           color: greyColor[950],
           borderRadius: "4px",
           "& .MuiOutlinedInput-notchedOutline": {
@@ -187,7 +252,7 @@ export const theme = createTheme({
     MuiInputLabel: {
       styleOverrides: {
         root: {
-          fontFamily: customFonts.family.hindMadurai,
+          fontFamily: defaultFonts.family.textos,
           color: greyColor[800],
           "&.Mui-focused": {
             color: primaryColor[600],
@@ -199,35 +264,4 @@ export const theme = createTheme({
       },
     },
   }
-});
-
-
-
-export const defaultParagraph = (theme: Theme) => ({
-  fontFamily: customFonts.family.hindMadurai,
-  fontWeight: "normal",
-  letterSpacing: customFonts.letter.normal,
-  color: theme.palette.text.primary,
-  lineHeight: 1.3,
-});
-
-export const defaultCTA = (theme: Theme) => ({
-  fontFamily: customFonts.family.hindMadurai,
-  fontWeight: "normal",
-  letterSpacing: customFonts.letter.wide,
-  color: theme.palette.text.primary,
-});
-
-export const defaultTitle = (theme: Theme) => ({
-  fontFamily: customFonts.family.alata,
-  letterSpacing: customFonts.letter.normal,
-  fontWeight: 500,
-  color: theme.palette.text.primary,
-  // lineHeight: 1.2,
-});
-
-export const inputAdvice = (theme: Theme) => ({
-  fontFamily: customFonts.family.hindMadurai,
-  fontSize: "0.75rem", // 12px
-  color: theme.palette.background.paper,
 });
