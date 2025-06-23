@@ -1,0 +1,43 @@
+<svg width="2676" height="1406" viewBox="0 0 2676 1406" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="rotatingGradient" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="userSpaceOnUse">
+            <!-- 4 colores distribuidos equitativamente cada 25% -->
+            <stop offset="0%" stop-color="#EA6CD7" />
+            <stop offset="8.33%" stop-color="#CDFEAC" />
+            <stop offset="16.66%" stop-color="#00DBCC" />
+            <stop offset="25%" stop-color="#8A94FF" />
+            <stop offset="33.33%" stop-color="#EA6CD7" />
+            <stop offset="41.66%" stop-color="#CDFEAC" />
+            <stop offset="50%" stop-color="#00DBCC" />
+            <stop offset="58.33%" stop-color="#8A94FF" />
+            <stop offset="66.66%" stop-color="#EA6CD7" />
+            <stop offset="75%" stop-color="#CDFEAC" />
+            <stop offset="83.33%" stop-color="#00DBCC" />
+            <stop offset="91.66%" stop-color="#8A94FF" />
+            <stop offset="100%" stop-color="#EA6CD7" />
+
+            <!-- Animación de rotación continua -->
+            <animateTransform 
+              attributeName="gradientTransform"
+              type="rotate"
+              values="0 1338 703; -360 1338 703"
+              dur="10s"
+              repeatCount="indefinite" />
+        </linearGradient>
+
+        <filter id="filter1" x="0" y="0" width="2680" height="1410" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="4" dy="4"/>
+            <feGaussianBlur stdDeviation="6"/>
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75 0"/>
+            <feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+        </filter>
+    </defs>
+
+    <g filter="url(#filter1)">
+        <path d="M2676 986.834L686.226 986.711C678.359 986.711 670.553 985.483 662.993 983.027C658.752 981.677 655.618 979.159 652.913 974.923C651.438 972.713 648.119 965.59 648.119 947.846V785.142C648.119 705.14 582.969 639.997 502.823 639.997C422.676 639.997 357.526 705.079 357.526 785.142V1197.43C357.526 1224.38 353.162 1244.83 344.496 1258.28C336.321 1270.99 324.459 1279.83 308.233 1285.29C289.057 1291.74 265.21 1295.05 237.367 1295.05C209.525 1295.05 185.677 1291.8 166.501 1285.29C150.337 1279.89 138.474 1271.05 130.238 1258.28C121.572 1244.83 117.208 1224.38 117.208 1197.49V0.000732422L0 0L0 1197.49C0 1236.05 5.65453 1269.14 16.8407 1295.85C28.5185 1323.85 45.7279 1346.44 67.9772 1363.02C89.3661 1378.98 115.18 1390.41 144.744 1396.85C172.402 1402.93 203.563 1406 237.367 1406C271.171 1406 302.271 1402.93 329.929 1396.85C359.431 1390.41 385.307 1378.98 406.696 1363.02C428.945 1346.44 446.154 1323.85 457.832 1295.85C469.018 1269.08 474.673 1235.99 474.673 1197.49V785.142C474.673 777.467 477.684 770.345 483.216 765.003C488.748 759.662 496.185 756.714 503.622 757.083C518.618 757.513 530.788 771.143 530.788 787.414V956.319C530.788 990.518 536.811 1017.47 549.227 1038.65C562.134 1060.76 580.388 1076.66 603.375 1085.93C623.842 1094.16 647.259 1098.39 672.889 1098.39H2676V986.834Z" fill="url(#rotatingGradient)"/>
+    </g>
+</svg>
