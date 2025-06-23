@@ -1,7 +1,7 @@
 // src/shared/components/ColorButton.jsx
 import React from "react";
 import { Button, CircularProgress, useTheme } from "@mui/material";
-import { primaryColor, terciaryColor } from "@/theme/theme";
+import { greyColor, primaryColor, terciaryColor } from "@/theme/theme";
 
 
 type ColorButtonProps = {
@@ -40,10 +40,10 @@ export const ColorButton: React.FC<ColorButtonProps> = ({
       boxShadow: `
       inset 0 0 0 4px transparent,
       inset 0 0 0 4px transparent,
-      inset 0 0 0 4px ${palette.primary.light}
+      inset 0 0 0 4px ${primaryColor[200]}
     `,
       '& > span': {
-        backgroundImage: `linear-gradient(to right, ${palette.grey[900]}, ${palette.grey[950]})`,
+        backgroundImage: `linear-gradient(to right, ${greyColor[900]}, ${greyColor[950]})`,
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
       },
@@ -81,7 +81,7 @@ export const ColorButton: React.FC<ColorButtonProps> = ({
     }}
   >
       <span>{isFetching && fetchingText ? fetchingText : text }</span>
-      {isFetching && <CircularProgress size={20} sx={{ color: palette.grey[950] }} />}
+      {isFetching && <CircularProgress size={20} sx={{ color: greyColor[950] }} />}
     </Button>
   );
 };
