@@ -4,7 +4,7 @@ import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import React from "react";
 import { Box } from "@mui/material";
-import { WhatsApp } from "../components/WhatsApp";
+// import { WhatsApp } from "../components/WhatsApp";
 import { Bounce, ToastContainer } from "react-toastify";
 
 export const Layout: React.FC = () => {
@@ -18,7 +18,7 @@ export const Layout: React.FC = () => {
         <Outlet />
       </Box>
       <Footer />
-      <WhatsApp />
+      {/* <WhatsApp /> */}
       <ToastContainer
         position="bottom-right"
         autoClose={4000}
