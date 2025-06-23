@@ -1,7 +1,13 @@
-export const HomePage = () => {
+// src/modules/home/page/HomePage.tsx
+import React from "react";
+import { Hero } from "../components/Hero";
+
+export const HomePage: React.FC = () => {
+ 
   return (
-    <main>
-      <h1>Home Page</h1>
-    </main>
+    <>
+      <Hero />
+
+    </>
   );
 };
