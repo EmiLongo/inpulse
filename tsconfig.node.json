@@ -23,15 +23,6 @@
     "noUncheckedSideEffectImports": true,
 
     "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"],
-      "@img/*": ["src/assets/img/*"],
-      // "@videos/*": ["src/assets/videos/*"],
-      "@components/*": ["src/components/*"],
-      "@modules/*": ["src/modules/*"],
-      "@shared/*": ["src/shared/*"],
-      "@theme/*": ["src/theme/*"],
-    },
     "types": ["node"]
   },
   "include": ["vite.config.ts"]
