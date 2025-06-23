@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { 
   AppBar, 
   Toolbar, 
-  Typography, 
   Box, 
   IconButton, 
   Drawer, 
@@ -11,37 +10,81 @@ import {
   Container,
   useMediaQuery,
   useTheme,
-  Badge
+  Typography,
 } from '@mui/material';
-import logoTextHorizontal from '@img/mundo_adaptogenos.svg';
-import logoTextVertical from '@img/logo_img.svg';
+import logoIsotipo from '@img/inpulse_design_logo_isotipo.svg';
 import inpulseLogo from "@img/inpulse_design_logo_negro_color.svg";
 
-import { Menu as MenuIcon, Close as CloseIcon, ShoppingCart as ShoppingCartIcon } from '@mui/icons-material';
-import { Text3, Title2 } from '@theme/textStyles';
-import { useNavigate } from 'react-router-dom';
+import TranslateIcon from '@mui/icons-material/Translate';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import { Text3, Title2, Title3 } from '@theme/textStyles';
+import { useLanguageStore } from '@/stores/languageStore';
+import { useTranslate } from '@/shared/utils/translate';
+// import { Title2 } from '@theme/textStyles';
 
 export const menuItems = [
-  { text: 'Melena de León', path: '/melena' },
-  { text: 'Cordyceps Militaris', path: '/cordyceps' },
-  { text: 'Reishi', path: '/reishi' },
-  { text: 'Cola de Pavo', path: '/cola-pavo' },
+  // { text: 'Melena de León', path: '/melena' },
+  // { text: 'Cordyceps Militaris', path: '/cordyceps' },
+  // { text: 'Reishi', path: '/reishi' },
+  // { text: 'Cola de Pavo', path: '/cola-pavo' },
+];
+type HeaderTranslation = {
+  header: {
+    [key: string]: string;
+  };
+};
+export const getInfoItems = (t: HeaderTranslation) => [
+// { text: 'Inicio', path: '#home' },
+{ text: t.header.menuItem1, path: '#services' },
+{ text: t.header.menuItem2, path: '#portfolio' },
+{ text: t.header.menuItem3, path: '#aboutus' },
+{ text: t.header.menuItem4, path: '#contact' },
 ];
 
-export const infoItems = [
-  // { text: 'Inicio', path: '#home' },
-  { text: 'Que hacemos', path: '#whatwedo' },
-  { text: 'Servicios', path: '#services' },
-  { text: 'Equipamiento', path: '#equipment' },
-  { text: 'Contacto', path: '#contact' },
-];
+const glassEffect = {
+  background: 'rgba(255, 255, 255, 0.1)',
+  backdropFilter: 'blur(15px)',
+  WebkitBackdropFilter: 'blur(15px)',
+  border: '1px solid rgba(255, 255, 255, 0.2)',
+  boxShadow: `
+    0px 5px 40px rgba(0, 0, 0, 0.10),
+    0px 100px 80px rgba(0, 219, 204, 0.01),
+    0px 41.78px 33.42px rgba(0, 0, 0, 0.0503),
+    0px 22.34px 17.87px rgba(0, 219, 204, 0.02),
+    0px 12.52px 10.02px rgba(0, 219, 204, 0.02),
+    0px 6.65px 5.32px rgba(0, 0, 0, 0.0283),
+    0px 2.77px 2.21px rgba(0, 0, 0, 0.0197)
+  `,
+  position: 'relative',
+  overflow: 'hidden',
+  // Inner shadows con pseudo-elementos
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    pointerEvents: 'none',
+    boxShadow: `
+      inset 0px -28px 84px -24px rgba(190, 255, 251, 0.1),
+      inset 0px 0px 2px 2px rgba(189, 255, 250, 0.1),
+      inset 0px 0px 8px 5px rgba(189, 255, 250, 0.05),
+      inset 0px 0px 16px 1px rgba(255, 255, 255, 0.1)
+    `,
+  },
+}
 
 export const Header: React.FC = () => {
+  const { toggleLanguage, language } = useLanguageStore();
+  const { t } = useTranslate();
   const theme = useTheme();
   const { palette } = theme;
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [mobileOpen, setMobileOpen] = useState(false);
-  const navigate = useNavigate();
+
+  const infoItems = getInfoItems(t);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -55,9 +98,9 @@ export const Header: React.FC = () => {
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: "3rem", mb: "2rem" }}>
         <Box 
           component={"img"} 
-          src={logoTextVertical} 
-          alt="Logo Mundo Adaptógenos" 
-          height="100px" 
+          src={inpulseLogo} 
+          alt="Logo InPulse Design" 
+          width="200px" 
           onClick={handleLogoClick}
           decoding="async"
           loading="lazy"
@@ -74,16 +117,25 @@ export const Header: React.FC = () => {
         onClick={handleDrawerToggle}
       />
       <List sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
-        {menuItems.map((item) => (
+        {/* {menuItems.map((item) => (
           <Box key={item.text} component={"a"} href={item.path}>
             <Title2 sx={{ fontSize: '1.2rem', color: palette.text.primary, textTransform: 'none', }}>{item.text}</Title2>
           </Box>
-        ))}
+        ))} */}
         {infoItems.map((item) => (
           <Box key={item.text} component={"a"} href={item.path}>
             <Title2 sx={{ fontSize: '1.2rem', color: palette.text.primary, textTransform: 'none', }}>{item.text}</Title2>
           </Box>
         ))}
+        <IconButton
+          aria-label="change language"
+          edge="start"
+          onClick={() => toggleLanguage()}
+          // sx={{ color: palette.grey[50] }}
+        >
+          <TranslateIcon />
+          <Typography>{language}</Typography>
+        </IconButton>
       </List>
       <Box
         component={"a"}
@@ -108,7 +160,7 @@ export const Header: React.FC = () => {
           loading="lazy"
         />
         <Text3 sx={{ color: "inherit",textAlign: "center" }}>
-          Desarrollado por
+          {t.header.developBy}
         </Text3>
       </Box>
     </Box>
@@ -116,82 +168,94 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      {/* <Box sx={{ height: "70px" }} id="home"/> */}
       <AppBar 
       id="navbar"
-      position="fixed" 
-      color="default" 
-      elevation={1} 
+      elevation={0} 
       sx={{
-        height: "70px",
-        backgroundColor: "#f3f6fc82",
-        backdropFilter: "blur(10px) saturate(180%)",
-        WebkitBackdropFilter: "blur(10px) saturate(180%)",
-
+        margin: 0,
+        padding: 0,
+        position: "fixed",
+        top: "1rem",
+        height: "40px",
+        width: "100%",
+        background: "transparent",
       }}
       >
-        <Container maxWidth="xl" sx={{ height: '100%' }}>
-          <Toolbar disableGutters sx={{ height: '100%' }}>
+        <Container 
+        maxWidth={false}
+        sx={{ 
+          width: "100%",
+          height: '100%',
+          minHeight: "unset",
+        }}
+        >
+          <Toolbar disableGutters sx={{ height: '100%', minHeight: {xs: 'unset', md: 'unset'}, }}>
             {isMobile ? (
               // versión móvil
               <>
-                <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center',  paddingX: { xs: '1rem',} }}>
-                  <IconButton
-                    color="inherit"
-                    aria-label="open drawer"
-                    edge="start"
-                    onClick={handleDrawerToggle}
-                    sx={{ mr: 2 }}
-                  >
-                    <MenuIcon />
-                  </IconButton>
+                <Box sx={{ 
+                  flexGrow: 1, 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'space-between',  
+                  color: "palette.grey[950]",
+                }}>
                   <Box 
-                  component={"img"}
-                  src={logoTextHorizontal}
-                  alt="Logo Mundo Adaptógenos"
-                  height="40px"
+                  component={"img"}                  
+                  src={logoIsotipo}
+                  alt="Logo InPulse Design"
+                  height="30px"
                   onClick={handleLogoClick}
                   />
-                  <IconButton onClick={() => navigate("/cart")} sx={{ mx: 2 }}>
-                    {/* <Badge badgeContent={cartItems.length} color="primary"> */}
-                    <Badge badgeContent={"1"} color="primary">
-                      <ShoppingCartIcon />
-                    </Badge>
-                  </IconButton>
+                  <Box sx={{
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    borderRadius: "12px",
+                    padding: "0.5rem",
+                    ...glassEffect,
+                   }}>
+                    <IconButton
+                      aria-label="open drawer"
+                      edge="start"
+                      onClick={handleDrawerToggle}
+                      sx={{
+                        color: palette.grey[50],
+                        padding: 0,
+                        margin: 0,
+                      }}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  </Box>
                 </Box>
               </>
             ) : (
               // versión escritorio
-              <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingX: { xs: '2rem', sm: '3rem', md: '4rem', lg: '5rem', xl: '8rem'} }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', height: '100%' }}>
                 <Box 
                   component={"img"}
-                  src={logoTextHorizontal}
-                  alt="Logo Mundo Adaptógenos"
-                  height="40px"
+                  src={logoIsotipo}
+                  alt="Logo InPulse Design"
+                  height="30px"
                   onClick={handleLogoClick}
                 />
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: {xs: '3rem', lg: '4rem', xl: '5rem'} }}>
-                  {menuItems.map((item) => (
-                    <Box
-                      key={item.text}
-                      component={"a"}
-                      href={item.path}
-                    >
-                      <Title2 sx={{
-                        fontWeight: 500,
-                        color: 'text.primary',
-                        '&:hover': {
-                          color: palette.primary[600],
-                        },
-                        textTransform: 'none',
-                      }}>{item.text}</Title2>
-                    </Box>
-                  ))}
-                  <IconButton onClick={() => navigate("/cart")} sx={{ mx: 2 }}>
-                    {/* <Badge badgeContent={cartItems.length} color="primary"> */}
-                    <Badge badgeContent={"1"} color="primary">
-                      <ShoppingCartIcon />
-                    </Badge>
+                <Box sx={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: {xs: '2rem', lg: '4rem', xl: '5rem'}, 
+                  paddingX: "1rem",
+                  borderRadius: "12px",
+                  ...glassEffect 
+                }}>
+                  <IconButton
+                    aria-label="change language"
+                    edge="start"
+                    onClick={() => toggleLanguage()}
+                    sx={{ color: palette.grey[50] }}
+                  >
+                    <TranslateIcon />
+                    <Typography>{language}</Typography>
                   </IconButton>
                   {infoItems.map((item) => (
                     <Box
@@ -199,14 +263,18 @@ export const Header: React.FC = () => {
                       component={"a"}
                       href={item.path}
                     >
-                      <Title2 sx={{
-                        fontWeight: 500,
-                        color: 'text.primary',
+                      <Title3 sx={{
+                        color: palette.grey[50],
+                        fontWeight: 400,
                         '&:hover': {
-                          color: palette.primary[600],
+                          color: "primary.400",
                         },
                         textTransform: 'none',
-                      }}>{item.text}</Title2>
+                        margin: 0,
+                        padding: 0,
+                      }}>
+                        {item.text}
+                      </Title3>
                     </Box>
                   ))}
                 </Box>
@@ -232,19 +300,6 @@ export const Header: React.FC = () => {
           {drawer}
         </Drawer>
       </Box>
-      {/* titulo para el SEO, no se muestra */}
-      <Typography 
-        variant="h1" 
-        component="h1" 
-        sx={{ 
-          fontSize: '0.5rem',
-          position: 'absolute',
-          top: '-100%',
-          left: '-100%',
-        }}
-      >
-        Venta de Extracción Hongos Adaptógenos, Melena de León, Cordyceps Militaris, Reishi, Cola de Pavo, Màxima Pureza
-      </Typography>
     </>
   );
 };
