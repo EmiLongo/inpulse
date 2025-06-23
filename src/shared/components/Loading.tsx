@@ -1,5 +1,5 @@
 import { Box, CircularProgress } from "@mui/material";
-import logo from "@img/logo.svg";
+import logo from "@img/inpulse_design_logo_isotipo.svg";
 const Loading = () => {
   return (
     <Box
@@ -10,11 +10,11 @@ const Loading = () => {
         height: "100vh",
         width: "100%",
 				gap: "2rem",
-				backgroundColor: "#FFFFFF",
+				backgroundColor: "background.default",
       }}
     >
 			<CircularProgress />
-      <img src={logo} alt="Logo Mundo Adaptogenos" width={200} />
+      <img src={logo} alt="Logo Inpulse Design" width={200} />
     </Box>
   );
 };
