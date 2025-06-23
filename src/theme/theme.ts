@@ -191,7 +191,6 @@ export const theme = createTheme({
       700: greyColor[700],
       800: greyColor[800],
       900: greyColor[900],
-      950: greyColor[950],
     },
   },
   typography: {
