@@ -1,27 +1,32 @@
 <svg width="2676" height="1406" viewBox="0 0 2676 1406" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <linearGradient id="rotatingGradient" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="userSpaceOnUse">
+        <linearGradient id="rotatingGradient" x1="0%" y1="0%" x2="200%" y2="100%" gradientUnits="userSpaceOnUse">
             <!-- 4 colores distribuidos equitativamente cada 25% -->
             <stop offset="0%" stop-color="#EA6CD7" />
-            <stop offset="8.33%" stop-color="#CDFEAC" />
-            <stop offset="16.66%" stop-color="#00DBCC" />
-            <stop offset="25%" stop-color="#8A94FF" />
-            <stop offset="33.33%" stop-color="#EA6CD7" />
-            <stop offset="41.66%" stop-color="#CDFEAC" />
-            <stop offset="50%" stop-color="#00DBCC" />
-            <stop offset="58.33%" stop-color="#8A94FF" />
-            <stop offset="66.66%" stop-color="#EA6CD7" />
-            <stop offset="75%" stop-color="#CDFEAC" />
-            <stop offset="83.33%" stop-color="#00DBCC" />
-            <stop offset="91.66%" stop-color="#8A94FF" />
+            <stop offset="12.5%" stop-color="#CDFEAC" />
+            <stop offset="25%" stop-color="#00DBCC" />
+            <stop offset="37.5%" stop-color="#8A94FF" />
+            <stop offset="50%" stop-color="#EA6CD7" />
+            <stop offset="62.5%" stop-color="#CDFEAC" />
+            <stop offset="75%" stop-color="#00DBCC" />
+            <stop offset="87.5%" stop-color="#8A94FF" />
             <stop offset="100%" stop-color="#EA6CD7" />
+            <stop offset="112.5%" stop-color="#CDFEAC" />
+            <stop offset="125%" stop-color="#00DBCC" />
+            <stop offset="137.5%" stop-color="#8A94FF" />
+            <stop offset="150%" stop-color="#EA6CD7" />
+            <stop offset="162.5%" stop-color="#CDFEAC" />
+            <stop offset="175%" stop-color="#00DBCC" />
+            <stop offset="187.5%" stop-color="#8A94FF" />
+            <stop offset="200%" stop-color="#EA6CD7" />
+
 
             <!-- Animación de rotación continua -->
             <animateTransform 
               attributeName="gradientTransform"
-              type="rotate"
-              values="0 1338 703; -360 1338 703"
-              dur="10s"
+              type="translate"
+              values="267 703; -2676 703;"
+              dur="4s"
               repeatCount="indefinite" />
         </linearGradient>
 
