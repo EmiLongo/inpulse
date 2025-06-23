@@ -1,6 +1,6 @@
 // src/shared/components/ColorButton.jsx
 import React from "react";
-import { Button, CircularProgress, useTheme } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { greyColor, primaryColor, terciaryColor } from "@/theme/theme";
 
 
@@ -23,8 +23,6 @@ export const ColorButton: React.FC<ColorButtonProps> = ({
   disabled = false,
   sx = {},
 }) => {
-  const theme = useTheme();
-  const { palette } = theme;
   return (
     <Button
     onClick={onClick}
