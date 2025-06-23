@@ -114,7 +114,6 @@ export const theme = createTheme({
       700: primaryColor[700],
       800: primaryColor[800],
       900: primaryColor[900],
-      950: primaryColor[950],
     },
     secondary: {
       main: secondaryColor[400], // Color violeta
@@ -129,7 +128,6 @@ export const theme = createTheme({
       700: secondaryColor[700],
       800: secondaryColor[800],
       900: secondaryColor[900],
-      950: secondaryColor[950],
     },
     info: {
       main: terciaryColor[400], // Color azul (TERTIARY)
@@ -144,7 +142,6 @@ export const theme = createTheme({
       700: terciaryColor[700],
       800: terciaryColor[800],
       900: terciaryColor[900],
-      950: terciaryColor[950],
     },
     success: { 
       main: accentColor[400], // Color verde mantis (ACCENT)
@@ -159,7 +156,6 @@ export const theme = createTheme({
       700: accentColor[700],
       800: accentColor[800],
       900: accentColor[900],
-      950: accentColor[950],
     },
     background: {
       default: greyColor[950],
@@ -183,7 +179,6 @@ export const theme = createTheme({
       700: errorColor[700],
       800: errorColor[800],
       900: errorColor[900],
-      950: errorColor[950],
     },
     grey: {
       50: greyColor[50],
