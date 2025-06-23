@@ -1,6 +1,7 @@
 // src/shared/components/ColorButton.jsx
 import React from "react";
 import { Button, CircularProgress, useTheme } from "@mui/material";
+import { primaryColor, terciaryColor } from "@/theme/theme";
 
 
 type ColorButtonProps = {
@@ -35,19 +36,19 @@ export const ColorButton: React.FC<ColorButtonProps> = ({
       height: "40px",
       width: "200px",
       borderRadius: "40px",
-      background: `linear-gradient(to bottom, ${type === "greenButton" ? palette.primary[100] : palette.info[100]}, ${type === "greenButton" ? palette.primary[200] : palette.info[200]})`,
+      background: `linear-gradient(to bottom, ${type === "greenButton" ? primaryColor[100] : terciaryColor[100]}, ${type === "greenButton" ? primaryColor[200] : terciaryColor[200]})`,
       boxShadow: `
       inset 0 0 0 4px transparent,
       inset 0 0 0 4px transparent,
-      inset 0 0 0 4px ${palette.primary[200]}
+      inset 0 0 0 4px ${palette.primary.light}
     `,
       '& > span': {
-        backgroundImage: `linear-gradient(to right, ${palette.grey[900]}, ${(palette.grey as any)[950]})`,
+        backgroundImage: `linear-gradient(to right, ${palette.grey[900]}, ${palette.grey[950]})`,
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
       },
       "&:hover": {
-        background: `linear-gradient(to bottom, ${type === "greenButton" ? palette.primary[200] : palette.info[200]}, ${type === "greenButton" ? palette.primary[300] : palette.info[300]})`,
+        background: `linear-gradient(to bottom, ${type === "greenButton" ? primaryColor[200] : terciaryColor[200]}, ${type === "greenButton" ? primaryColor[300] : terciaryColor[300]})`,
       },
       // Aplicamos los gradientes del stroke usando pseudo-elementos
       "&::before": {
@@ -66,10 +67,10 @@ export const ColorButton: React.FC<ColorButtonProps> = ({
             rgba(0, 0, 0, 0) 100%
           ),
           linear-gradient(to bottom,
-            rgba(255, 255, 255, 0.5) 0%,
+            rgba(255, 255, 255, 0.5) 0%, 
             rgba(255, 255, 255, 0) 100%
           ),
-          ${type === "greenButton" ? palette.primary[200] : palette.info[200]}
+          ${type === "greenButton" ? primaryColor[200] : terciaryColor[200]}
         `,
         WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
         WebkitMaskComposite: "xor",
