@@ -7,8 +7,8 @@ import {
   Link,
   useTheme,
   Divider,
+  styled,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import WhatsApp from "@mui/icons-material/WhatsApp";
 import LocalPhoneOutlined from "@mui/icons-material/LocalPhoneOutlined";
 
@@ -16,13 +16,15 @@ import FmdGoodOutlined from '@mui/icons-material/FmdGoodOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import inpulseLogo from "@img/inpulse_design_logo_blanco.svg";
-import logoContraste from "@img/mundo_adaptogenos.svg";
-import { infoItems } from "./Header";
+import logoContraste from "@img/inpulse_design_logo_blanco_color.svg";
 import {
   Text2,
   Title2,
 } from "@/theme/textStyles";
 import { toast } from "react-toastify";
+import { useTranslate } from "@/shared/utils/translate";
+import { getInfoItems } from "./Header";
+import { primaryColor } from "@/theme/theme";
 
 export interface IContactInfo {
   icon: React.ReactNode;
@@ -68,9 +70,13 @@ export const contactInfo : IContactInfo[] = [
 export const Footer: React.FC = () => {
   const theme = useTheme();
   const { palette } = theme;
+
+  const { t } = useTranslate();
+  const infoItems = getInfoItems(t);
+
   // Estilos personalizados
   const StyledFooter = styled("footer")({
-    backgroundColor: palette.primary[900],
+    backgroundColor: palette.background.default,
     color: palette.primary.light,
     paddingTop: "2rem",
     paddingBottom: "1rem",
@@ -103,7 +109,7 @@ export const Footer: React.FC = () => {
     textDecoration: "none",
     color: palette.primary.light,
     "&:hover": {
-      color: palette.primary[400],
+      color: primaryColor[400],
     },
   });
 
@@ -112,7 +118,7 @@ export const Footer: React.FC = () => {
     if (navigator.share) {
       navigator
         .share({
-          title: "Mundo Adaptógenos",
+          title: "Inpulse Design",
           url: window.location.href,
         })
         .catch(console.error);
@@ -156,7 +162,7 @@ export const Footer: React.FC = () => {
               <Box
                 component={"img"}
                 src={logoContraste}
-                alt="Mundo Adaptógenos Blanco y Negro"
+                alt="Inpulse Design Blanco y Negro"
                 decoding="async"
                 loading="lazy"
                 sx={{
@@ -178,14 +184,14 @@ export const Footer: React.FC = () => {
                   height={24}
                   sx={{ verticalAlign: "middle", marginRight: 1 }}
                 />
-                <Text2 sx={{ color: palette.primary[100], fontWeight: 400 }}>
+                <Text2 sx={{ color: primaryColor[100], fontWeight: 400 }}>
                   Compartir página
                 </Text2>
               </Box>
             </Box>
           </Box>
             <Box id="footerRight" sx={{ display: "flex", flexDirection: "column", justifyContent: "center"}}>
-              <Title2 sx={{ color: palette.primary[100], textAlign: "center", textTransform: "none", marginBottom: {xs: "1rem", sm: "unset"} }}>Nuestra Web:</Title2>
+              <Title2 sx={{ color: primaryColor[100], textAlign: "center", textTransform: "none", marginBottom: {xs: "1rem", sm: "unset"} }}>Nuestra Web:</Title2>
               <Box>
                 <FooterList>
                   <FooterListItem id="footerListItem-home">
@@ -214,7 +220,7 @@ export const Footer: React.FC = () => {
         sx={{ 
           marginTop: "2rem", 
           marginBottom: "1rem", 
-          backgroundColor: palette.primary[100] 
+          backgroundColor: primaryColor[100] 
         }} 
         />
         <Box
