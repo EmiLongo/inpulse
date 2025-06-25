@@ -10,11 +10,11 @@ import {
   styled,
 } from "@mui/material";
 import WhatsApp from "@mui/icons-material/WhatsApp";
-import LocalPhoneOutlined from "@mui/icons-material/LocalPhoneOutlined";
 
-import FmdGoodOutlined from '@mui/icons-material/FmdGoodOutlined';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import inpulseLogo from "@img/inpulse_design_logo_blanco.svg";
 import logoContraste from "@img/inpulse_design_logo_blanco_color.svg";
 import {
@@ -35,36 +35,37 @@ export interface IContactInfo {
 }
 
 export const contactInfo : IContactInfo[] = [
-  { icon: <WhatsApp sx={{ fontSize: "1.5rem", color: "secondary.main" }}/>, 
-    title: "Dpto Técnico:", 
-    text: "341 338-9977", 
+  { icon: <WhatsApp sx={{ fontSize: "1.5rem", color: "primary.200" }}/>, 
+    title: "Área Técnica:", 
+    text: "341 266-7096", 
     type: "phone",
-    url: "https://wa.me/5493413389977?text=Hola,%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20los%20servicios%20de%20Talleres%20Montreal."
+    url: "https://wa.me/5493412667096?text=Hola,%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20los%20servicios%20de%20InPulse%20Design."
   },
-  { icon: <WhatsApp sx={{ fontSize: "1.5rem", color: "secondary.main" }}/>, 
-    title: "Administración:", 
-    text: "3476 619-576", 
+  { icon: <WhatsApp sx={{ fontSize: "1.5rem", color: "primary.200" }}/>, 
+    title: "Área Diseño:", 
+    text: "11 6896-2233", 
     type: "phone",
-    url: "https://wa.me/5493476619576?text=Hola,%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20los%20servicios%20de%20Talleres%20Montreal.",
+    url: "https://wa.me/5491168962233?text=Hola,%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20los%20servicios%20de%20InPulse%20Design.",
   },
-  { icon: <LocalPhoneOutlined sx={{ fontSize: "1.5rem", color: "secondary.main" }}/>, 
-    title: "Teléfono Fijo:", 
-    text: "3476 224-447", 
-    type: "phone",
-    url: "",
-  },
-  { icon: <MailOutlineOutlinedIcon sx={{ fontSize: "1.5rem", color: "secondary.main" }}/>, 
+  { icon: <MailOutlineOutlinedIcon sx={{ fontSize: "1.5rem", color: "primary.200" }}/>, 
     title: "", 
-    text: "talleresmontrealsrl@gmail.com", 
+    text: "inpulsedesign.info@gmail.com", 
     type: "Email",
     url: "",
   },
   {
-    icon: <FmdGoodOutlined sx={{ fontSize: "1.5rem", color: "secondary.main" }}/>,
+    icon: <InstagramIcon sx={{ fontSize: "1.5rem", color: "primary.200" }}/>,
     title: "",
-    text: " Av José Márquez 856, San Lorenzo, Santa Fe",
-    type: "Dirección",
-    url: "",
+    text: "@inpulse_design",
+    type: "Instagram",
+    url: "https://www.instagram.com/inpulse_design/",
+  },
+  {
+    icon: <LinkedInIcon sx={{ fontSize: "1.5rem", color: "primary.200" }}/>,
+    title: "",
+    text: "Linkedin",
+    type: "Linkedin",
+    url: "https://www.linkedin.com/in/inpulsedesign/",
   },
 ];
 export const Footer: React.FC = () => {
