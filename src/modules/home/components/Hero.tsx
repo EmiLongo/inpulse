@@ -124,7 +124,12 @@ export const Hero: React.FC = () => {
             fetchingText=""
             isFetching={false}
             disabled={false}
-            sx={{ display: {xs: "none", sm: "flex"}, marginTop: {sm: "1rem"}}}
+            sx={{ 
+              display: {xs: "none", sm: "flex"}, 
+              marginTop: {sm: "1rem"},
+              height: {xs: "30px", md: "36px"},
+              width: {xs: "180px", md: "260px"},
+            }}
             text={t.hero.button}
             onClick={() => {}}
           />
@@ -146,6 +151,7 @@ export const Hero: React.FC = () => {
           onClick={() => {}}
         />
       </Box>
+        <span id="game"></span>
     </>
 
   );
