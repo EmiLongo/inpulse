@@ -418,7 +418,7 @@ export const DinoGame: React.FC = () => {
   // Handle keydown
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === 'Space' || e.key === ' ') {
+      if (e.code === 'ArrowUp') {
         e.preventDefault();
         if (!gameStarted) {
           startGame();
@@ -445,12 +445,22 @@ export const DinoGame: React.FC = () => {
   }, []);
 
   return (
-    <Box id="game" sx={{ bgcolor: 'amber.900', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <Box
+    sx={{ 
+      bgcolor: 'amber.900', 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center', 
+      marginY: {xs: '4rem', md: '5rem', lg: '6rem', xl: '7rem'}
+
+    }}
+    >
       <Box sx={{ position: 'relative' }}>
         {/* Contenedor principal del juego */}
         <Box
           ref={containerRef}
           onTouchStart={handleGameInteraction}
+          onClick={handleGameInteraction}
           sx={{
             position: 'relative',
             width: 'min(920px, 100vw)',
@@ -479,6 +489,7 @@ export const DinoGame: React.FC = () => {
               backgroundRepeat: 'repeat-x',
               backgroundImage: `url(${suelo})`,
               backgroundSize: '50% 70px',
+              filter: 'brightness(0.5)',
             }}
           />
     
@@ -496,7 +507,7 @@ export const DinoGame: React.FC = () => {
               backgroundSize: '336px 84px',
               backgroundRepeat: 'repeat-x',
               backgroundPositionX: '0px',
-              filter: 'drop-shadow(2px 0 0 rgb(255, 255, 255, 0.5))',
+              filter: 'drop-shadow(2px 0 0 rgb(0, 0, 0, 1)) invert(1)',
             }}
             className="dino dino-corriendo"
           />
@@ -536,7 +547,7 @@ export const DinoGame: React.FC = () => {
             <Box sx={{ textAlign: 'center', color: 'white' }}>
               <Typography sx={{ fontSize: '2.25rem', fontWeight: 'bold', mb: 2 }}>GAME OVER</Typography>
               <Typography sx={{ fontSize: '1.25rem', mb: 1 }}>Score: {score}</Typography>
-              <Typography sx={{ fontSize: '1rem' }}>Presione ESPACIO para reiniciar</Typography>
+              <Typography sx={{ fontSize: '1rem' }}>Presione FLECHA ARRIBA o CLICK para reiniciar</Typography>
             </Box>
           </Box>
         )}
@@ -557,7 +568,7 @@ export const DinoGame: React.FC = () => {
           >
             <Box sx={{ textAlign: 'center', color: 'white' }}>
               <Typography sx={{ fontSize: '2.25rem', fontWeight: 'bold', mb: 2 }}>Página en construcción</Typography>
-              <Typography sx={{ fontSize: '1rem' }}>Relaje y presione ESPACIO</Typography>
+              <Typography sx={{ fontSize: '1rem' }}>Relaje y haga CLICK o presione FLECHA ARRIBA</Typography>
             </Box>
           </Box>
         )}
