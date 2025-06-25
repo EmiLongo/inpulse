@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import suelo from '@img/dino-game/suelo.png';
 import dino from '@img/dino-game/uli-saltarín.png';
 import cactus1 from '@img/dino-game/cactus1.png';
@@ -6,20 +6,72 @@ import cactus2 from '@img/dino-game/cactus2.png';
 import nube from '@img/dino-game/nube.png';
 import { Box, Typography } from '@mui/material'
 
-export const DinoGame = () => {
+interface GameState {
+  time: Date;
+  deltaTime: number;
+  floorY: number;
+  velY: number;
+  impulse: number;
+  gravity: number;
+  dinoPosX: number;
+  dinoPosY: number;
+  floorX: number;
+  sceneVel: number;
+  gameVel: number;
+  stopped: boolean;
+  jumping: boolean;
+  timeUntilObstacle: number;
+  timeObstacleMin: number;
+  timeObstacleMax: number;
+  obstacles: Obstacle[];
+  timeUntilCloud: number;
+  timeCloudMin: number;
+  timeCloudMax: number;
+  clouds: Cloud[];
+  cloudVel: number;
+  animationId: number | null;
+}
+
+// Modificá la interfaz Obstacle:
+interface Obstacle {
+  element: HTMLDivElement;
+  posX: number;
+  passed?: boolean; // <-- nuevo flag
+}
+
+
+interface Cloud {
+  element: HTMLDivElement;
+  posX: number;
+}
+
+export const DinoGame: React.FC = () => {
   // Game state
-  const [score, setScore] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
-  const [gameStarted, setGameStarted] = useState(false);
+  const [score, setScore] = useState<number>(0);
+  const [gameOver, setGameOver] = useState<boolean>(false);
+  const [gameStarted, setGameStarted] = useState<boolean>(false);
   
   // Refs for game elements
   // const gameRef = useRef(null);
-  const dinoRef = useRef(null);
-  const containerRef = useRef(null);
-  const floorRef = useRef(null);
+  const dinoRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const floorRef = useRef<HTMLDivElement>(null);
   
+  // Handle game interaction
+  const handleGameInteraction = (e: React.TouchEvent | React.MouseEvent) => {
+    e.preventDefault(); // Previene comportamientos por defecto
+    
+    if (!gameStarted) {
+      startGame();
+    } else if (gameOver) {
+      restartGame();
+    } else {
+      jump();
+    }
+  };
+
   // Game variables refs
-  const gameStateRef = useRef({
+  const gameStateRef = useRef<GameState>({
     time: new Date(),
     deltaTime: 0,
     floorY: 22,
@@ -46,7 +98,7 @@ export const DinoGame = () => {
   });
 
   // Game phase based on score
-  const getGamePhase = () => {
+  const getGamePhase = (): string => {
     if (score >= 20) return 'noche';
     if (score >= 10) return 'tarde';
     if (score >= 5) return 'mediodia';
@@ -54,7 +106,7 @@ export const DinoGame = () => {
   };
 
   // Initialize game
-  const initGame = useCallback(() => {
+  const initGame = useCallback((): void => {
     const state = gameStateRef.current;
     state.time = new Date();
     state.stopped = false;
@@ -72,12 +124,12 @@ export const DinoGame = () => {
   }, []);
 
   // Game loop
-  const gameLoop = useCallback(() => {
+  const gameLoop = useCallback((): void => {
     const state = gameStateRef.current;
     
     if (state.stopped) return;
     
-    state.deltaTime = (new Date() - state.time) / 1000;
+    state.deltaTime = (new Date().getTime() - state.time.getTime()) / 1000;
     state.time = new Date();
     
     // Update dinosaur
@@ -101,7 +153,7 @@ export const DinoGame = () => {
   }, []);
 
   // Move dinosaur
-  const moveDinosaur = () => {
+  const moveDinosaur = (): void => {
     const state = gameStateRef.current;
     const dino = dinoRef.current;
     
@@ -117,7 +169,7 @@ export const DinoGame = () => {
   };
 
   // Touch floor
-  const touchFloor = () => {
+  const touchFloor = (): void => {
     const state = gameStateRef.current;
     const dino = dinoRef.current;
     
@@ -133,7 +185,7 @@ export const DinoGame = () => {
   };
 
   // Move floor
-  const moveFloor = () => {
+  const moveFloor = (): void => {
     const state = gameStateRef.current;
     const floor = floorRef.current;
     const container = containerRef.current;
@@ -145,13 +197,13 @@ export const DinoGame = () => {
   };
 
   // Calculate displacement
-  const calculateDisplacement = () => {
+  const calculateDisplacement = (): number => {
     const state = gameStateRef.current;
     return state.sceneVel * state.deltaTime * state.gameVel;
   };
 
   // Jump function
-  const jump = useCallback(() => {
+  const jump = useCallback((): void => {
     const state = gameStateRef.current;
     const dino = dinoRef.current;
     
@@ -163,7 +215,7 @@ export const DinoGame = () => {
   }, []);
 
   // Update obstacles
-  const updateObstacles = () => {
+  const updateObstacles = (): void => {
     const state = gameStateRef.current;
     const container = containerRef.current;
     
@@ -175,11 +227,19 @@ export const DinoGame = () => {
       createObstacle();
     }
     
-    // Move existing obstacles
+    // Verificar si el dinosaurio ha pasado por el obstáculo
+    for (const obstacle of state.obstacles) {
+      if (!obstacle.passed && obstacle.posX + obstacle.element.clientWidth < state.dinoPosX) {
+        obstacle.passed = true;
+        gainPoints(); // suma un punto por cada obstáculo esquivado
+      }
+    }
+    
+    // Move existing obstacles - REMOVIDA la segunda llamada a gainPoints()
     state.obstacles = state.obstacles.filter(obstacle => {
       if (obstacle.posX < -obstacle.element.clientWidth) {
         obstacle.element.remove();
-        gainPoints();
+        // gainPoints(); // <-- ELIMINAR ESTA LÍNEA
         return false;
       } else {
         obstacle.posX -= calculateDisplacement();
@@ -190,7 +250,7 @@ export const DinoGame = () => {
   };
 
   // Create obstacle
-  const createObstacle = () => {
+  const createObstacle = (): void => {
     const state = gameStateRef.current;
     const container = containerRef.current;
     
@@ -200,7 +260,7 @@ export const DinoGame = () => {
     container.appendChild(obstacle);
     obstacle.className = Math.random() > 0.5 ? 'cactus cactus2' : 'cactus';
     
-    const obstacleObj = {
+    const obstacleObj: Obstacle = {
       element: obstacle,
       posX: container.clientWidth
     };
@@ -212,7 +272,7 @@ export const DinoGame = () => {
   };
 
   // Update clouds
-  const updateClouds = () => {
+  const updateClouds = (): void => {
     const state = gameStateRef.current;
     const container = containerRef.current;
     
@@ -238,7 +298,7 @@ export const DinoGame = () => {
   };
 
   // Create cloud
-  const createCloud = () => {
+  const createCloud = (): void => {
     const state = gameStateRef.current;
     const container = containerRef.current;
     
@@ -248,7 +308,7 @@ export const DinoGame = () => {
     container.appendChild(cloud);
     cloud.className = 'nube';
     
-    const cloudObj = {
+    const cloudObj: Cloud = {
       element: cloud,
       posX: container.clientWidth
     };
@@ -261,29 +321,33 @@ export const DinoGame = () => {
   };
 
   // Gain points
-  const gainPoints = () => {
+  const gainPoints = (): void => {
     const state = gameStateRef.current;
-    const newScore = score + 1;
-    setScore(newScore);
     
-    // Increase game speed based on score
-    if (newScore === 5) {
-      state.gameVel = 1.5;
-    } else if (newScore === 10) {
-      state.gameVel = 2;
-    } else if (newScore === 20) {
-      state.gameVel = 3;
-    }
+    setScore(prevScore => {
+      const newScore = prevScore + 1;
+      
+      // Increase game speed based on score
+      if (newScore === 50) {
+        state.gameVel = 1.5;
+      } else if (newScore === 100) {
+        state.gameVel = 2;
+      } else if (newScore === 200) {
+        state.gameVel = 3;
+      }
+      
+      return newScore;
+    });
   };
 
   // Detect collision
-  const detectCollision = () => {
+  const detectCollision = (): void => {
     const state = gameStateRef.current;
     const dino = dinoRef.current;
     
     if (!dino) return;
     
-    for (let obstacle of state.obstacles) {
+    for (const obstacle of state.obstacles) {
       if (obstacle.posX > state.dinoPosX + dino.clientWidth) {
         break;
       } else {
@@ -296,7 +360,7 @@ export const DinoGame = () => {
   };
 
   // Check collision
-  const isCollision = (a, b, paddingTop, paddingRight, paddingBottom, paddingLeft) => {
+  const isCollision = (a: HTMLElement, b: HTMLElement, paddingTop: number, paddingRight: number, paddingBottom: number, paddingLeft: number): boolean => {
     const aRect = a.getBoundingClientRect();
     const bRect = b.getBoundingClientRect();
 
@@ -309,7 +373,7 @@ export const DinoGame = () => {
   };
 
   // End game
-  const endGame = () => {
+  const endGame = (): void => {
     const state = gameStateRef.current;
     const dino = dinoRef.current;
     
@@ -326,14 +390,14 @@ export const DinoGame = () => {
   };
 
   // Start game
-  const startGame = () => {
+  const startGame = (): void => {
     setGameStarted(true);
     initGame();
     gameLoop();
   };
 
   // Restart game
-  const restartGame = () => {
+  const restartGame = (): void => {
     const state = gameStateRef.current;
     
     // Clean up existing obstacles and clouds
@@ -353,7 +417,7 @@ export const DinoGame = () => {
 
   // Handle keydown
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.code === 'Space' || e.key === ' ') {
         e.preventDefault();
         if (!gameStarted) {
@@ -381,28 +445,26 @@ export const DinoGame = () => {
   }, []);
 
   return (
-
-
-    <Box sx={{ minHeight: '100vh', bgcolor: 'amber.900', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <Box sx={{ bgcolor: 'amber.900', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Box sx={{ position: 'relative' }}>
         {/* Contenedor principal del juego */}
         <Box
           ref={containerRef}
+          onTouchStart={handleGameInteraction}
           sx={{
             position: 'relative',
-            width: '920px',
-            height: '280px',
+            width: 'min(920px, 100vw)',
+            height: '580px',
             overflow: 'hidden',
             transition: 'background-color 1s',
-            bgcolor:
-              getGamePhase() === 'mediodia'
-                ? 'pink.100'
-                : getGamePhase() === 'tarde'
-                ? 'red.200'
-                : getGamePhase() === 'noche'
-                ? 'purple.200'
-                : 'orange.100',
-            backgroundImage: 'linear-gradient(to bottom, #a7f3d0, transparent)', // from-emerald-200 to-transparent
+            bgcolor: getGamePhase() === 'mediodia'
+              ? 'pink.100'
+              : getGamePhase() === 'tarde'
+              ? 'red.200'
+              : getGamePhase() === 'noche'
+              ? 'purple.200'
+              : 'orange.100',
+            backgroundImage: 'linear-gradient(to bottom, #a7f3d0, transparent)',
           }}
         >
           {/* Piso */}
@@ -434,6 +496,7 @@ export const DinoGame = () => {
               backgroundSize: '336px 84px',
               backgroundRepeat: 'repeat-x',
               backgroundPositionX: '0px',
+              filter: 'drop-shadow(2px 0 0 rgb(255, 255, 255, 0.5))',
             }}
             className="dino dino-corriendo"
           />
@@ -459,6 +522,7 @@ export const DinoGame = () => {
         {/* Pantalla de Game Over */}
         {gameOver && (
           <Box
+            onClick={restartGame}
             sx={{
               position: 'absolute',
               inset: 0,
@@ -480,6 +544,7 @@ export const DinoGame = () => {
         {/* Pantalla de Inicio */}
         {!gameStarted && !gameOver && (
           <Box
+            onClick={startGame}
             sx={{
               position: 'absolute',
               inset: 0,
@@ -498,9 +563,7 @@ export const DinoGame = () => {
         )}
       </Box>
 
-    
-      
-      <style jsx>{`
+      <style>{`
         .dino-corriendo {
           animation: animarDino 0.25s steps(2) infinite;
         }
