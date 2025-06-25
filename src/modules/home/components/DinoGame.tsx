@@ -475,10 +475,10 @@ export const DinoGame: React.FC = () => {
               bottom: 0,
               left: 0,
               width: '200%',
-              height: '42px',
+              height: '70px',
               backgroundRepeat: 'repeat-x',
               backgroundImage: `url(${suelo})`,
-              backgroundSize: '50% 42px',
+              backgroundSize: '50% 70px',
             }}
           />
     
