@@ -2,6 +2,7 @@
 import React from "react";
 import { Hero } from "../components/Hero";
 import { DinoGame } from "../components/DinoGame";
+import { Contact } from "../components/Contact";
 
 export const HomePage: React.FC = () => {
  
@@ -9,6 +10,7 @@ export const HomePage: React.FC = () => {
     <>
       <Hero />
       <DinoGame />
+      <Contact />
     </>
   );
 };
