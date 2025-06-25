@@ -23,8 +23,8 @@ import {
 } from "@/theme/textStyles";
 import { toast } from "react-toastify";
 import { useTranslate } from "@/shared/utils/translate";
-import { getInfoItems } from "./Header";
-import { primaryColor } from "@/theme/theme";
+import { getInfoItems, glassEffect } from "./Header";
+import { greyColor, primaryColor } from "@/theme/theme";
 
 export interface IContactInfo {
   icon: React.ReactNode;
@@ -75,14 +75,6 @@ export const Footer: React.FC = () => {
   const { t } = useTranslate();
   const infoItems = getInfoItems(t);
 
-  // Estilos personalizados
-  const StyledFooter = styled("footer")({
-    backgroundColor: palette.background.default,
-    color: palette.primary.light,
-    paddingTop: "2rem",
-    paddingBottom: "1rem",
-  });
-
   const FooterList = styled(List)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
@@ -99,8 +91,9 @@ export const Footer: React.FC = () => {
 
   const FooterListItem = styled(ListItem)(({ theme }) => ({
     flex: 1,
-      margin: 0,
+    margin: 0,
     paddingRight: "0.5rem",
+    textWrap: "nowrap",
     [theme.breakpoints.up('md')]: {
       paddingRight: "1rem",
     },
@@ -133,7 +126,19 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <StyledFooter id="footer" sx={{ paddingX: {xs: "1rem", md: "2rem", lg: "unset"},}}>
+    <Box component="footer" id="footer" 
+    sx={{ 
+      paddingX: {xs: "1rem", md: "2rem", lg: "unset"},
+      paddingTop: "2rem",
+      paddingBottom: "1rem",
+      color: palette.primary.light,
+      maxWidth: "1280px",
+      width: "100%",
+      margin: "2rem auto",
+      borderRadius: "2rem",
+      ...glassEffect
+    }}
+    >
       <Container maxWidth="lg">
         <Box
           id="footerContainer"
@@ -185,14 +190,14 @@ export const Footer: React.FC = () => {
                   height={24}
                   sx={{ verticalAlign: "middle", marginRight: 1 }}
                 />
-                <Text2 sx={{ color: primaryColor[100], fontWeight: 400 }}>
-                  Compartir página
+                <Text2 sx={{ color: greyColor[50], fontWeight: 400 }}>
+                  {t.footer.share}
                 </Text2>
               </Box>
             </Box>
           </Box>
             <Box id="footerRight" sx={{ display: "flex", flexDirection: "column", justifyContent: "center"}}>
-              <Title2 sx={{ color: primaryColor[100], textAlign: "center", textTransform: "none", marginBottom: {xs: "1rem", sm: "unset"} }}>Nuestra Web:</Title2>
+              <Title2 sx={{ color: greyColor[50], textAlign: "center", textTransform: "none", marginBottom: {xs: "1rem", sm: "unset"} }}>{t.footer.rightTitle}</Title2>
               <Box>
                 <FooterList>
                   <FooterListItem id="footerListItem-home">
@@ -233,10 +238,11 @@ export const Footer: React.FC = () => {
             justifyContent: "center",
             gap: "0.5rem",
             marginTop: "2rem",
+            color: greyColor[50],
           }}
         >
           <Text2 sx={{ color: "inherit",textAlign: "center" }}>
-            Derechos reservados © {new Date().getFullYear()}.
+            {t.footer.allRights} {new Date().getFullYear()}.
           </Text2>
           <Box
             component={"a"}
@@ -250,7 +256,7 @@ export const Footer: React.FC = () => {
             }}
           >
             <Text2 sx={{ color: "inherit",textAlign: "center" }}>
-              Desarrollado por
+              {t.footer.developBy}
             </Text2>
             <Box
               component={"img"}
@@ -263,6 +269,6 @@ export const Footer: React.FC = () => {
           </Box>
         </Box>
       </Container>
-    </StyledFooter>
+    </Box>
   );
 };
