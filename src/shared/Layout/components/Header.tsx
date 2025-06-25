@@ -21,7 +21,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Text3, Title2, Title3 } from '@theme/textStyles';
 import { useLanguageStore } from '@/stores/languageStore';
 import { useTranslate } from '@/shared/utils/translate';
-// import { Title2 } from '@theme/textStyles';
 
 export const menuItems = [
   // { text: 'Melena de León', path: '/melena' },
@@ -49,7 +48,7 @@ export const getInfoItems = (t: HeaderTranslation) => [
 // { text: t.header.menuItem4, path: '#contact' },
 // ];
 
-const glassEffect = {
+export const glassEffect = {
   background: 'rgba(255, 255, 255, 0.1)',
   backdropFilter: 'blur(15px)',
   WebkitBackdropFilter: 'blur(15px)',
