@@ -18,7 +18,7 @@ const es = {
     title3: "Design",
     subtitle1: "Le damos pulso a tu marca.",
     subtitle2a: "Construimos la presencia digital que necesitás.",
-    subtitle2b: "Tomamos la esencia de tu marca como inspiración.",
+    subtitle2b: "Tomamos tu esencia como inspiración.",
     subtitle2c: "Creamos diseños que transmiten confianza.",
     button: "Escribinos",
   }

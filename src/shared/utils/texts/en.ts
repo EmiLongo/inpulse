@@ -17,9 +17,9 @@ const en = {
     title2: "InPulse",
     title3: "Design",
     subtitle1: "We give your brand a pulse.",
-    subtitle2a: "Construimos la presencia digital que necesitás.",
-    subtitle2b: "Tomamos la esencia de tu marca como inspiración.",
-    subtitle2c: "Creamos diseños que transmiten confianza.",
+    subtitle2a: "We build the digital presence you need.",
+    subtitle2b: "We take your essence as inspiration.",
+    subtitle2c: "We create designs that convey trust.",    
     button: "Write to us",
   }
 };

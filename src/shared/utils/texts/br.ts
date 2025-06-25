@@ -17,9 +17,9 @@ const br = {
     title2: "InPulse",
     title3: "Design",
     subtitle1: "Damos ritmo à sua marca.",
-    subtitle2a: "Construimos la presencia digital que necesitás.",
-    subtitle2b: "Tomamos la esencia de tu marca como inspiración.",
-    subtitle2c: "Creamos diseños que transmiten confianza.",
+    subtitle2a: "Construímos a presença digital que você precisa.",
+    subtitle2b: "Usamos sua essência como inspiração.",
+    subtitle2c: "Criamos designs que transmitem confiança.",
     button: "Escreva-nos",
   }
 };
