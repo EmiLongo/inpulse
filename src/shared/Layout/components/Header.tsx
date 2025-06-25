@@ -36,11 +36,18 @@ type HeaderTranslation = {
 };
 export const getInfoItems = (t: HeaderTranslation) => [
 // { text: 'Inicio', path: '#home' },
-{ text: t.header.menuItem1, path: '#services' },
-{ text: t.header.menuItem2, path: '#portfolio' },
-{ text: t.header.menuItem3, path: '#aboutus' },
-{ text: t.header.menuItem4, path: '#contact' },
+{ text: t.header.menuItem1, path: '#game' },
+{ text: t.header.menuItem2, path: '#game' },
+{ text: t.header.menuItem3, path: '#game' },
+{ text: t.header.menuItem4, path: '#game' },
 ];
+// export const getInfoItems = (t: HeaderTranslation) => [
+// // { text: 'Inicio', path: '#home' },
+// { text: t.header.menuItem1, path: '#services' },
+// { text: t.header.menuItem2, path: '#portfolio' },
+// { text: t.header.menuItem3, path: '#aboutus' },
+// { text: t.header.menuItem4, path: '#contact' },
+// ];
 
 const glassEffect = {
   background: 'rgba(255, 255, 255, 0.1)',
@@ -82,6 +89,8 @@ export const Header: React.FC = () => {
   const theme = useTheme();
   const { palette } = theme;
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  // const isDesktopXL = useMediaQuery(theme.breakpoints.up(1700));
+
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const infoItems = getInfoItems(t);
@@ -127,7 +136,7 @@ export const Header: React.FC = () => {
             <Title2 sx={{ fontSize: '1.2rem', color: palette.text.primary, textTransform: 'none', }}>{item.text}</Title2>
           </Box>
         ))}
-        <IconButton
+        {/* <IconButton
           aria-label="change language"
           edge="start"
           onClick={() => toggleLanguage()}
@@ -135,7 +144,7 @@ export const Header: React.FC = () => {
         >
           <TranslateIcon />
           <Typography>{language}</Typography>
-        </IconButton>
+        </IconButton> */}
       </List>
       <Box
         component={"a"}
@@ -213,8 +222,18 @@ export const Header: React.FC = () => {
                     justifyContent: 'center', 
                     borderRadius: "12px",
                     padding: "0.5rem",
+                    gap: "1rem",
                     ...glassEffect,
                    }}>
+                    <IconButton
+                      aria-label="change language"
+                      edge="start"
+                      onClick={() => toggleLanguage()}
+                      sx={{ color: palette.grey[50] }}
+                    >
+                      <TranslateIcon />
+                      <Typography>{language}</Typography>
+                    </IconButton>
                     <IconButton
                       aria-label="open drawer"
                       edge="start"
@@ -244,19 +263,11 @@ export const Header: React.FC = () => {
                   display: 'flex', 
                   alignItems: 'center', 
                   gap: {xs: '2rem', lg: '4rem', xl: '5rem'}, 
+                  // margingRight: {xs: "1rem", sm: "2rem", md: "4rem", lg: "8rem", xl: isDesktopXL ? "20rem" : "16rem"},
                   paddingX: "1rem",
                   borderRadius: "12px",
                   ...glassEffect 
                 }}>
-                  <IconButton
-                    aria-label="change language"
-                    edge="start"
-                    onClick={() => toggleLanguage()}
-                    sx={{ color: palette.grey[50] }}
-                  >
-                    <TranslateIcon />
-                    <Typography>{language}</Typography>
-                  </IconButton>
                   {infoItems.map((item) => (
                     <Box
                       key={item.text}
@@ -277,6 +288,15 @@ export const Header: React.FC = () => {
                       </Title3>
                     </Box>
                   ))}
+                  <IconButton
+                    aria-label="change language"
+                    edge="start"
+                    onClick={() => toggleLanguage()}
+                    sx={{ color: palette.grey[50] }}
+                  >
+                    <TranslateIcon />
+                    <Typography>{language}</Typography>
+                  </IconButton>
                 </Box>
               </Box>
             )}
