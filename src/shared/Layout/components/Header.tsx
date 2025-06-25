@@ -39,7 +39,7 @@ export const getInfoItems = (t: HeaderTranslation) => [
 { text: t.header.menuItem1, path: '#game' },
 { text: t.header.menuItem2, path: '#game' },
 { text: t.header.menuItem3, path: '#game' },
-{ text: t.header.menuItem4, path: '#game' },
+{ text: t.header.menuItem4, path: '#contact' },
 ];
 // export const getInfoItems = (t: HeaderTranslation) => [
 // // { text: 'Inicio', path: '#home' },
