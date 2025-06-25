@@ -8,8 +8,10 @@ const br = {
     developBy: "Desenvolvido por",
   },
   footer: {
-    share: "Compartilhar",
-    contact: "Contato",
+    share: "Compartilhar página",
+    rightTitle: "Nossa Web:",
+    allRights: "Todos os direitos reservados ©",
+    developBy: "Desenvolvido por",
   },
   hero: {
     h1: "Criamos sites modernos, lojas virtuais e gerenciamos redes sociais para impulsionar sua marca. Design digital com impacto.",

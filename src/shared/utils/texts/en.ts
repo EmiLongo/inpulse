@@ -8,8 +8,10 @@ const en = {
     developBy: "Developed by",
   },
   footer: {
-    share: "Share",
-    contact: "Contact",
+    share: "Share page",
+    rightTitle: "Our Web:",
+    allRights: "All rights reserved ©",
+    developBy: "Developed by",
   },
   hero: {
     h1: "We create modern websites, online stores, and manage social media to boost your brand. Digital design with impact.",
