@@ -6,12 +6,10 @@ import { customFonts, Text1, TitleHero, TitleHero2 } from "@/theme/textStyles";
 import { useTranslate } from "@/shared/utils/translate";
 import { Typewriter } from 'react-simple-typewriter';
 import { ColorButton } from "@/shared/components/ColorButton";
-// import MyGridBox from "./MyGridBox";
 
 export const Hero: React.FC = () => {
   const theme = useTheme();
   const isMini = useMediaQuery(theme.breakpoints.down(400));
-  // const isMobile = useMediaQuery(theme.breakpoints.down(500));
   const isDesktopXL = useMediaQuery(theme.breakpoints.up(1700));
   const { t } = useTranslate();
   return (
@@ -54,28 +52,37 @@ export const Hero: React.FC = () => {
         }} 
         />
         <Box sx={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: {xs: "center", sm: "unset", md: "center"},
+          gap: "1rem",
+          marginX: {xs: "auto", sm: "10rem", md: "auto"},
           zIndex: 100,
-          position: "absolute",
-          top: {xs: "23vh", md: "30vh", lg: "36vh", xl: isDesktopXL ? "35vh" : "38vh"},
-          left: {xs: "5.5rem", md: "400px", xl: "32%"},
-
-          // marginTop: "5rem",
         }}>
-          <TitleHero2 sx={{ fontWeight: 400, }}>{t.hero.title1}</TitleHero2>
-          <Box sx={{ display: "flex", flexDirection: {xs:"column", md:"row"},}}>
-            <TitleHero sx={{ color: "inherit"}}>{t.hero.title2}</TitleHero>
-            <TitleHero sx={{ color: "inherit", marginLeft: {xs: "26%", md: "1.5rem"}}}>{t.hero.title3}</TitleHero>
+          <Box sx={{
+            display: "flex",
+            flexDirection: "column",
+            marginTop: {xs: "25vh", sm: "25vh", md: "30vh", lg: "35vh"},
+            paddingLeft: {xs: 0, md: "12rem", lg: 0},
+            zIndex: 110,
+          }}>
+            <TitleHero2 sx={{ fontWeight: 400, }}>{t.hero.title1}</TitleHero2>
+            <Box sx={{ display: "flex", flexDirection: {xs: "column", md: "row"},}}>
+              <TitleHero >{t.hero.title2}</TitleHero>
+              <TitleHero sx={{marginLeft: {xs: "26%", sm: "3.2rem", md: "1.5rem"}}}>{t.hero.title3}</TitleHero>
+            </Box>
           </Box>
         </Box>
         <Box sx={{
           zIndex: 100,
           position: "absolute",
-          bottom: {xs: "3rem", md: "10%"},
-          right: {xs: "2rem", md: "10%", lg: "15%"},
+          top: {xs: "73%", sm: "77%", md: "77%"},
+          right: {xs: "1rem", sm: "2rem", md: "4rem", lg: "8rem", xl: isDesktopXL ? "20rem" : "16rem"},
           display: "flex",
           flexDirection: "column",
           alignItems: "end",
-          // marginTop: "5rem",
+          gap: {xs: "1rem", sm: "0.5rem"},
         }}>
           <TitleHero2 sx={{ 
             color: "primary.100", 
@@ -83,29 +90,18 @@ export const Hero: React.FC = () => {
             lineHeight: 1.1, 
             width: {xs: "12ch", sm: "100%"},
             fontWeight: 400,
-            marginBottom: customFonts.space.medium,
-            textShadow: customFonts.shadow.titulos
+            textShadow: customFonts.shadow.titulos,
+
           }}
           >
           {t.hero.subtitle1}
           </TitleHero2>
-        </Box>
-        <Box sx={{
-          zIndex: 100,
-          position: "absolute",
-          bottom: {xs: "-2rem", sm: "1rem", md: "10%"},
-          right: {xs: "2rem", md: "10%", lg: "15%"},
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "end",
-          height: {xs: "100px", sm: "unset"},
-          // marginTop: "5rem",
-        }}>
           <Text1 
             sx={{ 
               fontWeight: 300, 
               textAlign: "right", 
-              width: { xs: "12ch", sm: "100%" },
+              textWrap: "wrap", 
+              maxWidth: { xs: "14ch", sm: "100%" },
             }}
           >
             <Typewriter
@@ -117,28 +113,18 @@ export const Hero: React.FC = () => {
               loop={true}
               cursor
               cursorStyle="|"
+              cursorBlinking={true}
               typeSpeed={70}
-              deleteSpeed={30}
+              deleteSpeed={0}
               delaySpeed={1500}
             />
           </Text1>
-        </Box>
-        <Box sx={{
-          zIndex: 100,
-          position: "absolute",
-          bottom: {xs: "-4rem", sm: "-3rem", md: "0"},
-          right: {sm: "2rem", md: "10%", lg: "15%"},
-          display: {xs: "none", sm: "flex"},
-          flexDirection: "column",
-          alignItems: "end",
-          // marginTop: "5rem",
-        }}>
           <ColorButton
             type="greenButton"
             fetchingText=""
             isFetching={false}
             disabled={false}
-            sx={{}}
+            sx={{ display: {xs: "none", sm: "flex"}, marginTop: {sm: "1rem"}}}
             text={t.hero.button}
             onClick={() => {}}
           />
