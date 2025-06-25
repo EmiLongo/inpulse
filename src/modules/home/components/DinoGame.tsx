@@ -445,7 +445,7 @@ export const DinoGame: React.FC = () => {
   }, []);
 
   return (
-    <Box sx={{ bgcolor: 'amber.900', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <Box id="game" sx={{ bgcolor: 'amber.900', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Box sx={{ position: 'relative' }}>
         {/* Contenedor principal del juego */}
         <Box
@@ -536,7 +536,7 @@ export const DinoGame: React.FC = () => {
             <Box sx={{ textAlign: 'center', color: 'white' }}>
               <Typography sx={{ fontSize: '2.25rem', fontWeight: 'bold', mb: 2 }}>GAME OVER</Typography>
               <Typography sx={{ fontSize: '1.25rem', mb: 1 }}>Score: {score}</Typography>
-              <Typography sx={{ fontSize: '1rem' }}>Press SPACE to restart</Typography>
+              <Typography sx={{ fontSize: '1rem' }}>Presione ESPACIO para reiniciar</Typography>
             </Box>
           </Box>
         )}
@@ -556,8 +556,8 @@ export const DinoGame: React.FC = () => {
             }}
           >
             <Box sx={{ textAlign: 'center', color: 'white' }}>
-              <Typography sx={{ fontSize: '2.25rem', fontWeight: 'bold', mb: 2 }}>DINOSAUR GAME</Typography>
-              <Typography sx={{ fontSize: '1rem' }}>Press SPACE to start</Typography>
+              <Typography sx={{ fontSize: '2.25rem', fontWeight: 'bold', mb: 2 }}>Página en construcción</Typography>
+              <Typography sx={{ fontSize: '1rem' }}>Relaje y presione ESPACIO</Typography>
             </Box>
           </Box>
         )}
