@@ -131,7 +131,7 @@ export const Hero: React.FC = () => {
               width: {xs: "180px", md: "260px"},
             }}
             text={t.hero.button}
-            onClick={() => {}}
+            onClick={() => window.location.href = "/#contact"} 
           />
         </Box>
       </Box>
@@ -148,7 +148,7 @@ export const Hero: React.FC = () => {
           disabled={false}
           sx={{}}
           text={t.hero.button}
-          onClick={() => {}}
+          onClick={() => window.location.href = "/#contact"} 
         />
       </Box>
         <span id="game"></span>
