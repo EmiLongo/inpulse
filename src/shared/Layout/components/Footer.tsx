@@ -133,7 +133,7 @@ export const Footer: React.FC = () => {
       paddingBottom: "1rem",
       color: palette.primary.light,
       maxWidth: "1280px",
-      width: "100%",
+      width: {xs: "90%", lg: "100%"},
       margin: "2rem auto",
       borderRadius: "2rem",
       ...glassEffect
