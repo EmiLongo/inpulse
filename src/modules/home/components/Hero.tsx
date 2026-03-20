@@ -2,10 +2,9 @@
 import React from "react";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import hero from "@img/hero/hero.svg";
-import { customFonts, Text1, TitleHero, TitleHero2 } from "@/theme/textStyles";
-import { useTranslate } from "@/shared/utils/translate";
-import { Typewriter } from 'react-simple-typewriter';
-import { ColorButton } from "@/shared/components/ColorButton";
+import { customFonts, TitleHero, TitleHero2 } from "@theme/textStyles";
+import { useTranslate } from "@shared/utils/translate";
+import { ColorButton } from "@shared/components/ColorButton";
 
 export const Hero: React.FC = () => {
   const theme = useTheme();
@@ -40,45 +39,47 @@ export const Hero: React.FC = () => {
         {/* Imagen hero de fondo */}
         <Box component={"img"} src={hero} alt="Imagen Hero Inpulse Design" 
         sx={{
-          objectFit: {xs: "unset", md: "cover"},
-          minHeight: {xs: "unset", md: "100vh"},
-          height: {xs: "100vh", md: "unset"},
-          width: {xs: "unset", md: "100%"},
+          // objectFit: {xs: "unset", xl: "cover"},
+          // minHeight: {xs: "unset", md: "100vh"},
+          height: {xs: "675px", lg: "810px", xl: "1010px"},
           position: "absolute",
-          objectPosition: "left bottom",
-          bottom: 0,
-          left: 0,
+          top: {xs: "-94px", lg: "-113px", xl: "-231px"},
+          left: "0.5px",
           zIndex: 1,
         }} 
         />
+
+        {/* Somos Inpulse Design */}
         <Box sx={{
           width: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: {xs: "center", sm: "unset", md: "center"},
-          gap: "1rem",
+          alignItems: {xs: "unset", md: "center"},
+          gap: {xs: "1rem", sm: 0,md: "1rem"},
           marginX: {xs: "auto", sm: "10rem", md: "auto"},
           zIndex: 100,
         }}>
           <Box sx={{
             display: "flex",
             flexDirection: "column",
-            marginTop: {xs: "25vh", sm: "25vh", md: "30vh", lg: "35vh"},
-            paddingLeft: {xs: 0, md: "12rem", lg: 0},
+            marginTop: {xs: "85px", sm: "210px", md: "240px", lg: "290px"},
+            paddingLeft: {xs: "102px", sm: "175px", md: "12rem", lg: 0},
             zIndex: 110,
           }}>
-            <TitleHero2 sx={{ fontWeight: 400, }}>{t.hero.title1}</TitleHero2>
+            <TitleHero2 sx={{ fontWeight: 400, marginBottom: "0.4rem" }}>{t.hero.title1}</TitleHero2>
             <Box sx={{ display: "flex", flexDirection: {xs: "column", md: "row"},}}>
               <TitleHero >{t.hero.title2}</TitleHero>
-              <TitleHero sx={{marginLeft: {xs: "26%", sm: "3.2rem", md: "1.5rem"}}}>{t.hero.title3}</TitleHero>
+              <TitleHero sx={{marginLeft: {xs: "2.55rem", md: "1.5rem"}}}>{t.hero.title3}</TitleHero>
             </Box>
           </Box>
         </Box>
+
+        {/* Le damos pulso a tu marca */}
         <Box sx={{
           zIndex: 100,
           position: "absolute",
-          top: {xs: "73%", sm: "77%", md: "77%"},
-          right: {xs: "1rem", sm: "2rem", md: "4rem", lg: "8rem", xl: isDesktopXL ? "20rem" : "16rem"},
+          top: {xs: "470px", lg: "550px", xl: "600px"},
+          right: {xs: "1rem", md: "4rem", lg: "8rem", xl: isDesktopXL ? "20rem" : "16rem"},
           display: "flex",
           flexDirection: "column",
           alignItems: "end",
@@ -91,12 +92,10 @@ export const Hero: React.FC = () => {
             width: {xs: "12ch", sm: "100%"},
             fontWeight: 400,
             textShadow: customFonts.shadow.titulos,
-
-          }}
-          >
-          {t.hero.subtitle1}
+          }}>
+            {t.hero.subtitle1}
           </TitleHero2>
-          <Text1 
+          {/* <Text1 
             sx={{ 
               fontWeight: 300, 
               textAlign: "right", 
@@ -118,8 +117,9 @@ export const Hero: React.FC = () => {
               deleteSpeed={0}
               delaySpeed={1500}
             />
-          </Text1>
+          </Text1> */}
           <ColorButton
+            id= "bt-hero-desktop-contact"
             type="greenButton"
             fetchingText=""
             isFetching={false}
@@ -128,30 +128,30 @@ export const Hero: React.FC = () => {
               display: {xs: "none", sm: "flex"}, 
               marginTop: {sm: "1rem"},
               height: {xs: "30px", md: "36px"},
-              width: {xs: "180px", md: "260px"},
+              width: {xs: "180px", sm: "340px", md: "260px", lg: "467px", xl: "518px"},
             }}
             text={t.hero.button}
             onClick={() => window.location.href = "/#contact"} 
           />
         </Box>
       </Box>
-      <Box sx={{
+      {isMini && <Box sx={{
         display: {xs: "flex", sm: "none"},
         width: "100%",
         justifyContent: "center",
-        marginTop: "2rem",
+        paddingTop: "1.5rem",
       }}>
         <ColorButton
+          id= "bt-hero-mobile-contact"
           type="greenButton"
           fetchingText=""
           isFetching={false}
           disabled={false}
-          sx={{}}
           text={t.hero.button}
           onClick={() => window.location.href = "/#contact"} 
         />
-      </Box>
-        <span id="game"></span>
+      </Box>}
+      <span id="game"></span>
     </>
 
   );
