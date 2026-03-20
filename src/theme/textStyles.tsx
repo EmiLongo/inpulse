@@ -67,14 +67,14 @@ const responsiveFontSize = (fontSizes: { xxl?: string; xl?: string; lg?: string;
 // TITLES
 export const  TitleHero = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultTitle(),
-  ...responsiveFontSize({ xxl: '6rem', xl: '4.75rem', lg: '4.2rem', md: '4rem', sm: '3.75rem', xs: '3.75rem' })(theme), // 60px
+  ...responsiveFontSize({ xxl: '80px', xl: '64px', lg: '56px', md: '54px', sm: '50px', xs: '48px' })(theme), // 60px
   fontWeight: 600,
   lineHeight: 1.1,
   textShadow: customFonts.shadow.titulos,
 }))
 export const  TitleHero2 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultTitle(),
-  ...responsiveFontSize({ xxl: '3.27rem', xl: '2.45rem', lg: '2.23rem', md: '2.12rem', sm: '2rem', xs: '2rem' })(theme), // 60px
+  ...responsiveFontSize({ xxl: '50px', xl: '40px', lg: '36px', md: '32px', sm: '26px', xs: '24px' })(theme), // 36px
   fontWeight: 600,
   // lineHeight: 1.1,
 }))
