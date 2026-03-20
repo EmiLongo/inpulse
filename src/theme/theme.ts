@@ -158,8 +158,8 @@ export const theme = createTheme({
       900: accentColor[900],
     },
     background: {
-      default: greyColor[950],
-      paper: greyColor[50],
+      default: "#050021",
+      paper: "#282541",
     },
     text: {
       primary: primaryColor[800],
@@ -198,6 +198,13 @@ export const theme = createTheme({
     fontFamily: defaultFonts.family.textos,
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundColor: "transparent",
+        },
+      },
+    },
     MuiButton: {
       defaultProps: {
         // Establece el estilo predeterminado del botón
