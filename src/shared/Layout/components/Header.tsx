@@ -81,7 +81,7 @@ export const Header: React.FC = () => {
   const { t } = useTranslate();
   const theme = useTheme();
   const { palette } = theme;
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   // const isDesktopXL = useMediaQuery(theme.breakpoints.up(1700));
 
   const [mobileOpen, setMobileOpen] = useState(false);
