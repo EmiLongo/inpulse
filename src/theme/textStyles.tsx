@@ -74,7 +74,7 @@ export const  TitleHero = styled((props: TypographyProps) => <Typography {...pro
 }))
 export const  TitleHero2 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultTitle(),
-  ...responsiveFontSize({ xxl: '50px', xl: '40px', lg: '36px', md: '32px', sm: '26px', xs: '24px' })(theme), // 36px
+  ...responsiveFontSize({ xxl: '64px', xl: '44px', lg: '36px', md: '32px', sm: '26px', xs: '24px' })(theme), // 36px
   fontWeight: 600,
   // lineHeight: 1.1,
 }))
@@ -118,7 +118,7 @@ export const CallToAction = styled((props: TypographyProps) => <Typography {...p
 
 export const SubtitleXL = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultParagraph(),
-  ...responsiveFontSize({ xl: "1.5rem", lg: "1.375rem", md: "1.32rem", sm: "1.27rem", xs: "1.27rem"})(theme), // 24px
+  ...responsiveFontSize({ xxl: "60px", xl: "46px", lg: "38px", md: "32px", sm: "26px", xs: "24px"})(theme), // 24px
   textWrap: "wrap",
 }));
 
