@@ -1,20 +1,22 @@
-// src/shared/components/ColorButton.jsx
+// src/shared/components/ColorButton.tsx
 import React from "react";
 import { Button, CircularProgress } from "@mui/material";
 import { greyColor, primaryColor, terciaryColor } from "@/theme/theme";
 
 
 type ColorButtonProps = {
+  id: string;
   type: "greenButton" | "blueButton";
   onClick: () => void;
   text: string;
   fetchingText: string;
   isFetching: boolean;
   disabled: boolean;
-  sx: object;
+  sx?: object;
 };
 
 export const ColorButton: React.FC<ColorButtonProps> = ({
+  id,
   type = "greenButton", //lightGreenButton, greenButton, yellowButton, brownButton
   onClick = () => {},
   text = "",
@@ -25,6 +27,7 @@ export const ColorButton: React.FC<ColorButtonProps> = ({
 }) => {
   return (
     <Button
+    id={id}
     onClick={onClick}
     disabled={disabled || isFetching}
     sx={{
