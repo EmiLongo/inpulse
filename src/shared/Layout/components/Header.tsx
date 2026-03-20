@@ -33,20 +33,14 @@ type HeaderTranslation = {
     [key: string]: string;
   };
 };
+
 export const getInfoItems = (t: HeaderTranslation) => [
 // { text: 'Inicio', path: '#home' },
-{ text: t.header.menuItem1, path: '#game' },
-{ text: t.header.menuItem2, path: '#game' },
-{ text: t.header.menuItem3, path: '#game' },
+{ text: t.header.menuItem1, path: '#whatwedo' },
+{ text: t.header.menuItem2, path: '#portfolio' },
+{ text: t.header.menuItem3, path: '#aboutus' },
 { text: t.header.menuItem4, path: '#contact' },
 ];
-// export const getInfoItems = (t: HeaderTranslation) => [
-// // { text: 'Inicio', path: '#home' },
-// { text: t.header.menuItem1, path: '#services' },
-// { text: t.header.menuItem2, path: '#portfolio' },
-// { text: t.header.menuItem3, path: '#aboutus' },
-// { text: t.header.menuItem4, path: '#contact' },
-// ];
 
 export const glassEffect = {
   background: 'rgba(255, 255, 255, 0.1)',
@@ -112,6 +106,7 @@ export const Header: React.FC = () => {
           onClick={handleLogoClick}
           decoding="async"
           loading="lazy"
+          sx={{ cursor: 'pointer' }}
         />
       </Box>
       <Box
@@ -125,11 +120,6 @@ export const Header: React.FC = () => {
         onClick={handleDrawerToggle}
       />
       <List sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
-        {/* {menuItems.map((item) => (
-          <Box key={item.text} component={"a"} href={item.path}>
-            <Title2 sx={{ fontSize: '1.2rem', color: palette.text.primary, textTransform: 'none', }}>{item.text}</Title2>
-          </Box>
-        ))} */}
         {infoItems.map((item) => (
           <Box key={item.text} component={"a"} href={item.path}>
             <Title2 sx={{ fontSize: '1.2rem', color: palette.text.primary, textTransform: 'none', }}>{item.text}</Title2>
@@ -197,7 +187,7 @@ export const Header: React.FC = () => {
           minHeight: "unset",
         }}
         >
-          <Toolbar disableGutters sx={{ height: '100%', minHeight: {xs: 'unset', md: 'unset'}, }}>
+          <Toolbar disableGutters sx={{ height: '100%', minHeight: {xs: 'unset', md: 'unset'}, marginTop: {xs: '0.5rem', md: '1.5rem'} }}>
             {isMobile ? (
               // versión móvil
               <>
@@ -205,8 +195,9 @@ export const Header: React.FC = () => {
                   flexGrow: 1, 
                   display: 'flex', 
                   alignItems: 'center', 
-                  justifyContent: 'space-between',  
+                  justifyContent: 'end',  
                   color: "palette.grey[950]",
+                  gap: "2rem",
                 }}>
                   <Box 
                   component={"img"}                  
@@ -214,17 +205,20 @@ export const Header: React.FC = () => {
                   alt="Logo InPulse Design"
                   height="30px"
                   onClick={handleLogoClick}
+                  sx={{ cursor: 'pointer' }}
                   />
                   <Box sx={{
                     display: 'flex', 
                     alignItems: 'center', 
-                    justifyContent: 'center', 
+                    justifyContent: 'end', 
                     borderRadius: "12px",
-                    padding: "0.5rem",
+                    padding: "0 1rem 0 1.1rem",
+                    // paddingY: "0.5rem",
                     gap: "1rem",
                     ...glassEffect,
                    }}>
                     <IconButton
+                      id='bt-navbar-mobile-change-lang'
                       aria-label="change language"
                       edge="start"
                       onClick={() => toggleLanguage()}
@@ -250,23 +244,36 @@ export const Header: React.FC = () => {
               </>
             ) : (
               // versión escritorio
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', height: '100%' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'end', width: '100%', height: '100%', marginRight: {xs: "1rem", sm: "2rem", md: "64px"}, gap: "2rem" }}>
                 <Box 
                   component={"img"}
                   src={logoIsotipo}
                   alt="Logo InPulse Design"
                   height="30px"
                   onClick={handleLogoClick}
+                  sx={{
+                    cursor: 'pointer',
+                  }}
                 />
                 <Box sx={{ 
                   display: 'flex', 
                   alignItems: 'center', 
-                  gap: {xs: '2rem', lg: '4rem', xl: '5rem'}, 
-                  // margingRight: {xs: "1rem", sm: "2rem", md: "4rem", lg: "8rem", xl: isDesktopXL ? "20rem" : "16rem"},
-                  paddingX: "1rem",
+                  gap: {xs: '2rem', md: '2.5rem'}, 
+                  paddingX: "2rem",
+                  paddingY: "0.5rem",
                   borderRadius: "12px",
                   ...glassEffect 
                 }}>
+                  <IconButton
+                    id='bt-navbar-desk-change-lang'
+                    aria-label="change language"
+                    edge="start"
+                    onClick={() => toggleLanguage()}
+                    sx={{ color: palette.grey[50] }}
+                  >
+                    <TranslateIcon />
+                    <Typography>{language}</Typography>
+                  </IconButton>
                   {infoItems.map((item) => (
                     <Box
                       key={item.text}
@@ -287,15 +294,6 @@ export const Header: React.FC = () => {
                       </Title3>
                     </Box>
                   ))}
-                  <IconButton
-                    aria-label="change language"
-                    edge="start"
-                    onClick={() => toggleLanguage()}
-                    sx={{ color: palette.grey[50] }}
-                  >
-                    <TranslateIcon />
-                    <Typography>{language}</Typography>
-                  </IconButton>
                 </Box>
               </Box>
             )}
