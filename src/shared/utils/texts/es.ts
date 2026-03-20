@@ -1,7 +1,7 @@
 // src/shared/utils/texts/es.ts
 const es = {
   header: {
-    menuItem1: 'Servicios',
+    menuItem1: 'Qué hacemos',
     menuItem2: 'Portfolio',
     menuItem3: 'Nosotros',
     menuItem4: 'Contacto',

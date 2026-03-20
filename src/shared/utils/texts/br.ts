@@ -1,7 +1,7 @@
 // src/shared/utils/texts/br.ts
 const br = {
   header: {
-    menuItem1: 'Serviços',
+    menuItem1: 'Que fazemos',
     menuItem2: 'Portfólio',
     menuItem3: 'Sobre nós',
     menuItem4: 'Contato',
