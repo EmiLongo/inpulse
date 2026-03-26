@@ -1,7 +1,7 @@
 // src/modules/home/components/WhatWeDo.tsx
 import React from "react";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
-import { Text1, Text3, Text4, TextBody6, Title3 } from "@/theme/textStyles";
+import { SubtitleXL, Text1, Text3, Text4, TextBody1, TextBody3, TextBody5, TextBody6, Title3 } from "@/theme/textStyles";
 import { useTranslate } from "@/shared/utils/translate";
 import { greyColor } from "@/theme/theme";
 import { SwitchCustom } from "./SwitchCustom";
@@ -95,7 +95,8 @@ export const WhatWeDo: React.FC = () => {
               xs: "repeat(2, 1fr)",
               md: "repeat(4, 1fr)",
             },
-            gap: "2rem",
+            rowGap: "3rem",
+            columnGap: "2rem",
             marginTop: "2rem",
           }}>
             {products.map((item, index) => (
@@ -105,7 +106,7 @@ export const WhatWeDo: React.FC = () => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  gap: {xs: "0.5rem", md: "1.5rem"},
+                  gap: {xs: "0rem", md: "1.5rem"},
                 }}
               >
                 {/* Switch */}
@@ -115,6 +116,7 @@ export const WhatWeDo: React.FC = () => {
                 <Title3 sx={{ 
                   textAlign: "center",
                   width: "100%",
+                  marginTop: {xs:"1rem", md: 0},
                 }}>
                   {item.title}
                 </Title3>
@@ -129,6 +131,42 @@ export const WhatWeDo: React.FC = () => {
             ))}
           </Box>
         </Box>
+      </Box>
+      <Box sx={{
+        paddingY: {xs: "3rem", md: "5rem"},
+        display: "flex",
+        flexDirection: "column",
+        gap: "12px"
+      }}>
+        <Box sx={{
+          display: "flex",
+          flexDirection: {xs: "column", md: "row"},
+          justifyContent: "center",
+          alignItems: "center",
+          gap: {xs: 0, md: "3rem"},
+        }}>
+          <SubtitleXL>{t.whatWeDo.title2a}</SubtitleXL>
+          <TextBody1>+</TextBody1>
+          <SubtitleXL>{t.whatWeDo.title2b}</SubtitleXL>
+          <TextBody1>+</TextBody1>
+          <SubtitleXL>{t.whatWeDo.title2c}</SubtitleXL>
+        </Box>
+        {isMobile ?
+          <TextBody5 sx={{ 
+            textAlign: "center",
+            width: "100%",
+          }}>
+            {t.whatWeDo.subtitle2}
+          </TextBody5>
+          :
+          <TextBody3 sx={{ 
+            textAlign: "center",
+            width: "100%",
+          }}>
+            {t.whatWeDo.subtitle2}
+          </TextBody3>
+        }
+
       </Box>
     </>
   );
