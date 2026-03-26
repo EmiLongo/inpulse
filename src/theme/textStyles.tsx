@@ -104,6 +104,13 @@ export const Title3 = styled((props: TypographyProps) => <Typography {...props} 
   textWrap: "wrap",
 }));
 
+export const Title4 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
+  ...defaultTitle(),
+  ...responsiveFontSize({ xl: '20px', lg: '18px', md: '18px', sm: '16px', xs: '16px' })(theme), // 16px
+  fontWeight: 'normal',
+  textWrap: "wrap",
+}));
+
 // CTA
 export const CallToAction = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultCTA(),
@@ -220,6 +227,14 @@ export const TextBody6 = styled((props: TypographyProps) => <Typography {...prop
   ...defaultParagraph(),
   fontWeight: 300,
   fontSize: "16px",
+  textWrap: "balance",
+  color: "inherit"
+}));
+
+export const Caption = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
+  ...defaultParagraph(),
+  ...responsiveFontSize({ xxl: "26px", xl: "20px", lg: "18px", md: "16px", sm: "12px", xs: "12px"})(theme), // 24px
+  fontWeight: 100,
   textWrap: "balance",
   color: "inherit"
 }));
