@@ -39,7 +39,6 @@ export const Hero: React.FC = () => {
           height: {xs: "675px", lg: "810px", xl: "1010px"},
           position: "relative",
           color: "grey.50",
-          marginBottom: "3rem",
           backgroundColor: "background.default",
         }}
       >
