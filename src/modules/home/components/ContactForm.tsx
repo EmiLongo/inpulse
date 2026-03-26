@@ -155,6 +155,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
         </InputError>
       </Box>
       <ColorButton
+          id="bt-home-submit"
           type="greenButton"
           fetchingText="...enviando"
           isFetching={formik.isSubmitting}
