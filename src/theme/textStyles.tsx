@@ -89,14 +89,12 @@ export const Title1 = styled((props: TypographyProps) => <Typography {...props} 
   ...defaultTitle(),
   ...responsiveFontSize({ xl: '1.75rem', lg: '1.59rem', md: '1.52rem', sm: '1.44rem', xs: '1.44rem' })(theme), // 24px
   textWrap: "wrap",
-  textTransform: "uppercase",
 }));
 
 export const Title2 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultTitle(),
   ...responsiveFontSize({ xl: '1.5rem', lg: '1.375rem', md: '1.325rem', sm: '1.3rem', xs: '1.3rem' })(theme), // 20px
   textWrap: "wrap",
-  textTransform: "uppercase",
 }));
 
 export const Title3 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
@@ -185,7 +183,7 @@ export const TextBody1 = styled((props: TypographyProps) => <Typography {...prop
   ...defaultParagraph(),
   fontWeight: 300,
   fontSize: "38px",
-  textWrap: "wrap",
+  textWrap: "balance",
   color: "inherit"
 }));
 
@@ -193,7 +191,7 @@ export const TextBody2 = styled((props: TypographyProps) => <Typography {...prop
   ...defaultParagraph(),
   fontWeight: 300,
   fontSize: "32px",
-  textWrap: "wrap",
+  textWrap: "balance",
   color: "inherit"
 }));
 
@@ -201,28 +199,28 @@ export const TextBody3 = styled((props: TypographyProps) => <Typography {...prop
   ...defaultParagraph(),
   fontWeight: 300,
   fontSize: "24px",
-  textWrap: "wrap",
+  textWrap: "balance",
   color: "inherit"
 }));
 export const TextBody4 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
   ...defaultParagraph(),
   fontWeight: 300,
   fontSize: "20px",
-  textWrap: "wrap",
+  textWrap: "balance",
   color: "inherit"
 }));
 export const TextBody5 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
   ...defaultParagraph(),
   fontWeight: 300,
   fontSize: "18px",
-  textWrap: "wrap",
+  textWrap: "balance",
   color: "inherit"
 }));
 export const TextBody6 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
   ...defaultParagraph(),
   fontWeight: 300,
   fontSize: "16px",
-  textWrap: "wrap",
+  textWrap: "balance",
   color: "inherit"
 }));
 
