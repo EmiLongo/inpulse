@@ -2,7 +2,7 @@
 import React from "react";
 import { Hero } from "../components/Hero";
 import { WhatWeDo } from "../components/WhatWeDo";
-import { Contact } from "../components/Contact";
+import { ContactForm } from "../components/ContactForm";
 
 export const HomePage: React.FC = () => {
  
@@ -10,7 +10,7 @@ export const HomePage: React.FC = () => {
     <>
       <Hero />
       <WhatWeDo />
-      <Contact />
+      <ContactForm />
     </>
   );
 };
