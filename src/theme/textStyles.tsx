@@ -101,10 +101,9 @@ export const Title2 = styled((props: TypographyProps) => <Typography {...props} 
 
 export const Title3 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultTitle(),
-  ...responsiveFontSize({ xl: '1.25rem', lg: '1.15rem', md: '1.1rem', sm: '1.05rem', xs: '1.05rem' })(theme), // 16px
+  ...responsiveFontSize({ xl: '32px', lg: '24px', md: '22px', sm: '20px', xs: '20px' })(theme), // 16px
   fontWeight: 'normal',
   textWrap: "wrap",
-  textTransform: "uppercase",
 }));
 
 // CTA
@@ -142,22 +141,89 @@ export const ButtonMini = styled((props: TypographyProps) => <Typography {...pro
 }));
 
 // PARAGRAPHS
-export const Text1 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
+export const Text1 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
   ...defaultParagraph(),
-  ...responsiveFontSize({ xs: '1.15rem', md: '1.21rem', lg: '1.28rem', xl: '1.4rem' })(theme),
+  fontSize: "38px",
   textWrap: "wrap",
+  color: "inherit"
 }));
 
-export const Text2 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
+export const Text2 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
   ...defaultParagraph(),
-  ...responsiveFontSize({ xs: '1.1rem', md: '1.1rem', lg: '1.2rem', xl: '1.3rem' })(theme),
+  fontSize: "32px",
   textWrap: "wrap",
+  color: "inherit"
 }));
 
-export const Text3 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
+export const Text3 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
   ...defaultParagraph(),
-  ...responsiveFontSize({ xs: '0.8rem', md: '1rem', lg: '1.1rem', xl: '1.2rem' })(theme),
+  fontSize: "24px",
   textWrap: "wrap",
+  color: "inherit"
+}));
+export const Text4 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
+  ...defaultParagraph(),
+  fontSize: "20px",
+  textWrap: "wrap",
+  color: "inherit"
+}));
+export const Text5 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
+  ...defaultParagraph(),
+  fontSize: "18px",
+  textWrap: "wrap",
+  color: "inherit"
+}));
+export const Text6 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
+  ...defaultParagraph(),
+  fontSize: "16px",
+  textWrap: "wrap",
+  color: "inherit"
+}));
+
+// PARAGRAPHS
+export const TextBody1 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
+  ...defaultParagraph(),
+  fontWeight: 300,
+  fontSize: "38px",
+  textWrap: "wrap",
+  color: "inherit"
+}));
+
+export const TextBody2 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
+  ...defaultParagraph(),
+  fontWeight: 300,
+  fontSize: "32px",
+  textWrap: "wrap",
+  color: "inherit"
+}));
+
+export const TextBody3 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
+  ...defaultParagraph(),
+  fontWeight: 300,
+  fontSize: "24px",
+  textWrap: "wrap",
+  color: "inherit"
+}));
+export const TextBody4 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
+  ...defaultParagraph(),
+  fontWeight: 300,
+  fontSize: "20px",
+  textWrap: "wrap",
+  color: "inherit"
+}));
+export const TextBody5 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
+  ...defaultParagraph(),
+  fontWeight: 300,
+  fontSize: "18px",
+  textWrap: "wrap",
+  color: "inherit"
+}));
+export const TextBody6 = styled((props: TypographyProps) => <Typography {...props} />)(() => ({
+  ...defaultParagraph(),
+  fontWeight: 300,
+  fontSize: "16px",
+  textWrap: "wrap",
+  color: "inherit"
 }));
 
 export const ParagraphLight = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
