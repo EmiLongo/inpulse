@@ -201,7 +201,8 @@ export const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundColor: "transparent",
+          // backgroundColor: "transparent",
+          backgroundColor: "#282541",
         },
       },
     },
@@ -224,7 +225,7 @@ export const theme = createTheme({
         },
       },
     },
-        MuiTextField: {
+    MuiTextField: {
       defaultProps: {
         variant: "filled",
       },
@@ -250,11 +251,46 @@ export const theme = createTheme({
         },
       },
     },
+    MuiFilledInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: "4px",
+          background: "#282541",
+          boxShadow: `
+            3px 4px 4px rgba(0,0,0,0.45),
+            0px 0px 2px rgba(0,0,0,0.42),
+            -2px -2px 5px rgba(225,234,255,0.23),
+
+            inset 0.2px 0.2px 1px rgba(241,246,255,0.25),
+            inset 0px -2px 4px rgba(183,208,255,0.35),
+            inset 3px 3px 7px rgba(0,0,0,0.15),
+            inset 1px 1px 2px rgba(0,0,0,0.30),
+            inset 2px 2px 3px rgba(0,0,0,0.55)
+          `,
+          "& fieldset": {
+            border: "none",
+          },
+          "&:hover": {
+            boxShadow: `
+              inset 3px 3px 6px rgba(0,0,0,0.6),
+              inset -2px -2px 4px rgba(255,255,255,0.06)
+            `,
+          },
+          "&.Mui-focused": {
+            boxShadow: `
+              inset 1px 1px 3px rgba(0,0,0,0.7),
+              inset -1px -1px 3px rgba(255,255,255,0.08),
+              0 0 0 1px ${primaryColor[600]}
+            `,
+          },
+        },
+      },
+    },
     MuiInputLabel: {
       styleOverrides: {
         root: {
           fontFamily: defaultFonts.family.textos,
-          color: greyColor[800],
+          color: greyColor[600],
           "&.Mui-focused": {
             color: primaryColor[600],
           },
