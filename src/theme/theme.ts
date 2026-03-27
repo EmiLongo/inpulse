@@ -1,5 +1,5 @@
 // src/theme/theme.ts
-import { createTheme } from "@mui/material";
+import { backdropClasses, createTheme } from "@mui/material";
 import { defaultFonts } from "./textStyles";
 
 // hechas con https://m2.material.io/inline-tools/color/
@@ -235,6 +235,7 @@ export const theme = createTheme({
         root: {
           fontFamily: defaultFonts.family.textos,
           color: greyColor[950],
+          background: "#282541",
           borderRadius: "4px",
           "& .MuiOutlinedInput-notchedOutline": {
             borderColor: greyColor[600],
@@ -282,6 +283,35 @@ export const theme = createTheme({
               inset -1px -1px 3px rgba(255,255,255,0.08),
               0 0 0 1px ${primaryColor[600]}
             `,
+          },
+        },
+        input: {
+          color: greyColor[200],
+          caretColor: greyColor[200],
+
+          // 👇 TODOS los estados juntos (clave)
+          "&:-webkit-autofill, \
+            &:-webkit-autofill:hover, \
+            &:-webkit-autofill:focus, \
+            &:-webkit-autofill:active": {
+            
+            WebkitBoxShadow: "0 0 0 1000px #282541 inset !important",
+            WebkitTextFillColor: `${greyColor[200]} !important`,
+            caretColor: `${greyColor[800]} !important`,
+            borderRadius: "inherit",
+            background: "#282541 !important",
+            boxShadow: `
+            3px 4px 4px rgba(0,0,0,0.45),
+            0px 0px 2px rgba(0,0,0,0.42),
+            -2px -2px 5px rgba(225,234,255,0.23),
+
+            inset 0.2px 0.2px 1px rgba(241,246,255,0.25),
+            inset 0px -2px 4px rgba(183,208,255,0.35),
+            inset 3px 3px 7px rgba(0,0,0,0.15),
+            inset 1px 1px 2px rgba(0,0,0,0.30),
+            inset 2px 2px 3px rgba(0,0,0,0.55)
+          `,
+            transition: "background-color 9999s ease-in-out 0s",
           },
         },
       },
