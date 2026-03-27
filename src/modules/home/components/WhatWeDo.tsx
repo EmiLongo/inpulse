@@ -52,8 +52,10 @@ export const WhatWeDo: React.FC = () => {
           display: "flex",
           justifyContent: "center",
           marginTop: "-5px",
+          position: "relative",
         }}
       >
+        <Box id="whatwedo" sx={{position: "relative", top: {xs: "-5rem", md: "-7rem"}}}></Box>
         <Box sx={{width: "100%", maxWidth: "1210px"}}>
 
           {/* titulos */}
