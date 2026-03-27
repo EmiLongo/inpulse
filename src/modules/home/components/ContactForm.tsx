@@ -69,9 +69,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
         padding: { xs: "1rem", md: "48px 60px" },
         marginX: "auto",
         gap: "24px",
+        position: "relative",
         ...sx,
       }}
     >
+      <Box id="contact" sx={{position: "relative", top: {xs: "-8rem", md: "-11rem"}}}></Box>
       {isMobile ? (
         <Box sx={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           <img src={ulie} alt="ulie" style={{ width: "100px", transform: "scaleX(-1)" }} />
