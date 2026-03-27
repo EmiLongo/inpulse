@@ -136,7 +136,8 @@ export const WhatWeDo: React.FC = () => {
         paddingY: {xs: "3rem", md: "5rem"},
         display: "flex",
         flexDirection: "column",
-        gap: "12px"
+        gap: "12px",
+        color: greyColor[50],
       }}>
         <Box sx={{
           display: "flex",
