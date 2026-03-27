@@ -20,8 +20,10 @@ export const AboutUs: React.FC = () => {
       sx={{
         margin: { xs: "3rem auto", md: "4rem auto" },
         color: greyColor[50],
+        position: "relative",
       }}
     >
+      <Box id="aboutus" sx={{position: "relative", top: {xs: "-5rem", md: "-10rem"}}}></Box>
       <Box
         sx={{
           maxWidth: "1200px",
@@ -66,7 +68,15 @@ export const AboutUs: React.FC = () => {
       >
         {isMobile ? (
           <>
-            <Box>
+            <Box
+              sx={{
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "1rem",
+              }}
+            >
               <Box
                 component={"img"}
                 src={uli}
@@ -83,7 +93,15 @@ export const AboutUs: React.FC = () => {
                 {t.aboutUs.reason1}
               </TextBody5>
             </Box>
-            <Box>
+            <Box
+              sx={{
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "1rem",
+              }}
+            >
               <Box
                 component={"img"}
                 src={uli}
@@ -100,7 +118,15 @@ export const AboutUs: React.FC = () => {
                 {t.aboutUs.reason2}
               </TextBody5>
             </Box>
-            <Box>
+            <Box
+              sx={{
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "1rem",
+              }}
+            >
               <Box
                 component={"img"}
                 src={uli}
