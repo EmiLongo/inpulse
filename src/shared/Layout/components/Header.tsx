@@ -13,14 +13,14 @@ import {
   Typography,
 } from '@mui/material';
 import logoIsotipo from '@img/inpulse_design_logo_isotipo.svg';
-import inpulseLogo from "@img/inpulse_design_logo_negro_color.svg";
-
+import inpulseLogo from "@img/inpulse_design_logo_blanco_color.svg";
 import TranslateIcon from '@mui/icons-material/Translate';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import { Text3, Title2, Title3 } from '@theme/textStyles';
+import { Title2, Title3 } from '@theme/textStyles';
 import { useLanguageStore } from '@/stores/languageStore';
 import { useTranslate } from '@/shared/utils/translate';
+import { greyColor } from '@/theme/theme';
 
 export const menuItems = [
   // { text: 'Melena de León', path: '/melena' },
@@ -96,7 +96,7 @@ export const Header: React.FC = () => {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', position: 'relative', height: '100%' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', position: 'relative', height: '100%', color: greyColor[50] }}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: "3rem", mb: "2rem" }}>
         <Box 
           component={"img"} 
@@ -122,7 +122,7 @@ export const Header: React.FC = () => {
       <List sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
         {infoItems.map((item) => (
           <Box key={item.text} component={"a"} href={item.path}>
-            <Title2 sx={{ fontSize: '1.2rem', color: palette.text.primary, textTransform: 'none', }}>{item.text}</Title2>
+            <Title2 sx={{ fontSize: '1.2rem', textTransform: 'none', }}>{item.text}</Title2>
           </Box>
         ))}
         {/* <IconButton
@@ -135,32 +135,6 @@ export const Header: React.FC = () => {
           <Typography>{language}</Typography>
         </IconButton> */}
       </List>
-      <Box
-        component={"a"}
-        href="https://inpulse.com.ar"
-        target="_blank"
-        rel="noopener noreferrer"
-        sx={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "0.25rem",
-          position: 'absolute', bottom: "1rem" 
-        }}
-      >
-        <Box
-          component={"img"}
-          src={inpulseLogo}
-          alt="Logo Inpulse Design"
-          width={100}
-          decoding="async"
-          loading="lazy"
-        />
-        <Text3 sx={{ color: "inherit",textAlign: "center" }}>
-          {t.header.developBy}
-        </Text3>
-      </Box>
     </Box>
   );
 
