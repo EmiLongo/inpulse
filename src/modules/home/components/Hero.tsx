@@ -55,7 +55,6 @@ export const Hero: React.FC = () => {
             zIndex: 1,
           }}
         />
-
         {/* Somos Inpulse Design */}
         <Box
           sx={{
@@ -190,7 +189,6 @@ export const Hero: React.FC = () => {
           </Box>
         )}
       </Box>
-      <span id="game"></span>
     </>
   );
 };
