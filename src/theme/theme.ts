@@ -1,5 +1,5 @@
 // src/theme/theme.ts
-import { backdropClasses, createTheme } from "@mui/material";
+import { createTheme } from "@mui/material";
 import { defaultFonts } from "./textStyles";
 
 // hechas con https://m2.material.io/inline-tools/color/
