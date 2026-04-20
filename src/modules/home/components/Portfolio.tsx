@@ -3,20 +3,39 @@ import { Text1, Text3, TextBody4, TextBody5, TextBody6, Title3 } from "@/theme/t
 import { greyColor } from "@/theme/theme";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
+import MAImg from "@img/portfolio/Hongos.png";
+import TMImg from "@img/portfolio/TM.png";
+import KImg from "@img/portfolio/Kosten.png";
 
 type Client = {
   name: string;
   desc: string;
   color: string;
   accent: string;
+  image: string;
 };
 
 const clients: Client[] = [
-  { name: "Mundo Adaptógenos", desc: "Tienda online de salud integral", color: "#1a2a1a", accent: "#3a6b3a" },
-  { name: "Studio Creativo", desc: "Diseño y branding digital", color: "#1a1a2a", accent: "#3a3a6b" },
-  { name: "Tech Soluciones", desc: "Software a medida para empresas", color: "#2a1a1a", accent: "#6b3a3a" },
-  { name: "Gastro Delivery", desc: "Plataforma de pedidos online", color: "#1a2a2a", accent: "#3a6b6b" },
-  { name: "Legal Pro", desc: "Estudio jurídico especializado", color: "#2a2a1a", accent: "#6b6b3a" },
+  { name: "Mundo Adaptógenos",
+    desc: "Tienda online de salud integral",
+    color: "#1a2a1a",
+    accent: "#3a6b3a",
+    image: MAImg 
+  },
+  { name: "Talleres Montreal",
+    desc: "Empresa dedicada a fabricar piezas a medida",
+    color: "#1a1a2a",
+    accent: "#3a3a6b",
+    image: TMImg
+  },
+  { name: "Kosten",
+    desc: "Aplicación web de turismo",
+    color: "#2a1a1a",
+    accent: "#6b3a3a",
+    image: KImg
+  },
+  // { name: "Gastro Delivery", desc: "Plataforma de pedidos online", color: "#1a2a2a", accent: "#3a6b6b" },
+  // { name: "Legal Pro", desc: "Estudio jurídico especializado", color: "#2a2a1a", accent: "#6b6b3a" },
 ];
 
 export const Portfolio: React.FC = () => {
@@ -100,18 +119,18 @@ export const Portfolio: React.FC = () => {
       sx={{
         width: "100vw",
         backgroundColor: "background.default",
-        paddingY: {xs: "3rem", md: "5rem"},
-        borderRadius: {xs: "50px", md: "100px"},
+        paddingY: { xs: "3rem", md: "5rem" },
+        borderRadius: { xs: "50px", md: "100px" },
         color: greyColor[50],
         overflow: "hidden",
         position: "relative",
       }}
     >
-      <Box id="portfolio" sx={{position: "relative", top: {xs: "-8rem", md: "-11rem"}}}></Box>
+      <Box id="portfolio" sx={{ position: "relative", top: { xs: "-8rem", md: "-11rem" } }}></Box>
       {isMobile ? (
         <Text3 sx={{ width: "100%", textAlign: "center", textWrap: "balance", lineHeight: "1.7" }}>{t.clients.title1}</Text3>
       ) : (
-        <Text1 sx={{ width: "100%", textAlign: "center", marginBottom: "2rem"}}>{t.clients.title1}</Text1>
+        <Text1 sx={{ width: "100%", textAlign: "center", marginBottom: "2rem" }}>{t.clients.title1}</Text1>
       )}
 
       {/* TRACK */}
@@ -186,6 +205,8 @@ export const Portfolio: React.FC = () => {
                   width: "100%",
                   height: "100%",
                   background: `linear-gradient(135deg, ${client.color}, ${client.accent})`,
+                  backgroundImage: `url(${client.image})`,
+                  backgroundSize: "cover",
                   position: "relative",
                 }}
                 onMouseEnter={() => setPaused(true)}
@@ -200,7 +221,7 @@ export const Portfolio: React.FC = () => {
                       width: "100%",
                       p: 2,
                       background:
-                        "linear-gradient(transparent, rgba(0,0,0,0.7))",
+                        "linear-gradient(transparent, rgba(0,0,0,1))",
                       color: "#fff",
                     }}
                   >
@@ -208,16 +229,16 @@ export const Portfolio: React.FC = () => {
                       {client.name}
                     </Title3>
                     {isMobile
-                    ? <TextBody6 sx={{color: greyColor[200]}}>
-                      {client.desc}
-                    </TextBody6>
-                    : isDesktop 
-                      ? <TextBody5 sx={{color: greyColor[200]}}>
+                      ? <TextBody6 sx={{ color: greyColor[200] }}>
+                        {client.desc}
+                      </TextBody6>
+                      : isDesktop
+                        ? <TextBody5 sx={{ color: greyColor[200] }}>
                           {client.desc}
                         </TextBody5>
-                      : <TextBody4 sx={{color: greyColor[200]}}>
-                        {client.desc}
-                      </TextBody4>
+                        : <TextBody4 sx={{ color: greyColor[200] }}>
+                          {client.desc}
+                        </TextBody4>
                     }
                   </Box>
                 )}
