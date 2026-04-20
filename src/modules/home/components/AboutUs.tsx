@@ -9,12 +9,20 @@ import {
 } from "@/theme/textStyles";
 import { greyColor } from "@/theme/theme";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
-import uli from "@img/ulie.png";
+import startup from "@img/about-us/startup.gif";
+import promocion from "@img/about-us/promocion.gif";
+import marketing from "@img/about-us/marketing.gif";
 
 export const AboutUs: React.FC = () => {
   const { t } = useTranslate();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const cardShadow = {boxShadow: `
+  0px 1px 3px 0px rgba(0, 0, 0, 0.12),
+  0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+  0px 2px 1px -1px rgba(0, 0, 0, 0.20)
+  `,}
   return (
     <Box
       sx={{
@@ -77,12 +85,23 @@ export const AboutUs: React.FC = () => {
                 gap: "1rem",
               }}
             >
-              <Box
-                component={"img"}
-                src={uli}
-                alt="animación numero 1"
-                sx={{ width: "60px" }}
-              />
+              <Box sx={{
+                background: "#FFFFFF",
+                borderRadius: "50%",
+                width: "100px",
+                height: "100px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                ...cardShadow   
+              }}>
+                <Box
+                  component={"img"}
+                  src={startup}
+                  alt="animación numero 1"
+                  sx={{ width: "60px" }}
+                />
+              </Box>
               <TextBody5
                 sx={{
                   textAlign: "center",
@@ -102,12 +121,23 @@ export const AboutUs: React.FC = () => {
                 gap: "1rem",
               }}
             >
-              <Box
-                component={"img"}
-                src={uli}
-                alt="animación numero 2"
-                sx={{ width: "60px" }}
-              />
+              <Box sx={{
+                background: "#FFFFFF",
+                borderRadius: "50%",
+                width: "100px",
+                height: "100px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                ...cardShadow 
+              }}>
+                <Box
+                  component={"img"}
+                  src={promocion}
+                  alt="animación numero 2"
+                  sx={{ width: "60px" }}
+                />
+              </Box>
               <TextBody5
                 sx={{
                   textAlign: "center",
@@ -127,12 +157,23 @@ export const AboutUs: React.FC = () => {
                 gap: "1rem",
               }}
             >
-              <Box
-                component={"img"}
-                src={uli}
-                alt="animación numero 3"
-                sx={{ width: "60px" }}
-              />
+              <Box sx={{
+                background: "#FFFFFF",
+                borderRadius: "50%",
+                width: "100px",
+                height: "100px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                ...cardShadow
+              }}>
+                <Box
+                  component={"img"}
+                  src={marketing}
+                  alt="animación numero 3"
+                  sx={{ width: "60px" }}
+                />
+              </Box>
               <TextBody5
                 sx={{
                   textAlign: "center",
@@ -155,12 +196,23 @@ export const AboutUs: React.FC = () => {
                 gap: "1rem",
               }}
             >
-              <Box
-                component={"img"}
-                src={uli}
-                alt="animación numero 1"
-                sx={{ width: "80px" }}
-              />
+              <Box sx={{
+                background: "#FFFFFF",
+                borderRadius: "50%",
+                width: "120px",
+                height: "120px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",    
+                ...cardShadow
+              }}>
+                <Box
+                  component={"img"}
+                  src={startup}
+                  alt="animación numero 1"
+                  sx={{ width: "80px" }}
+                />
+              </Box>
               <TextBody3
                 sx={{
                   textAlign: "center",
@@ -181,12 +233,23 @@ export const AboutUs: React.FC = () => {
                 gap: "1rem",
               }}
             >
-              <Box
-                component={"img"}
-                src={uli}
-                alt="animación numero 2"
-                sx={{ width: "80px" }}
-              />
+              <Box sx={{
+                background: "#FFFFFF",
+                borderRadius: "50%",
+                width: "120px",
+                height: "120px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                ...cardShadow
+              }}>
+                <Box
+                  component={"img"}
+                  src={promocion}
+                  alt="animación numero 2"
+                  sx={{ width: "80px" }}
+                />
+              </Box>
               <TextBody3
                 sx={{
                   textAlign: "center",
@@ -194,7 +257,7 @@ export const AboutUs: React.FC = () => {
                   width: "220px",
                   height: "100px",
                 }}
-              >
+                >
                 {t.aboutUs.reason2}
               </TextBody3>
             </Box>
@@ -207,12 +270,23 @@ export const AboutUs: React.FC = () => {
                 gap: "1rem",
               }}
             >
-              <Box
-                component={"img"}
-                src={uli}
-                alt="animación numero 3"
-                sx={{ width: "80px" }}
-              />
+              <Box sx={{
+                background: "#FFFFFF",
+                borderRadius: "50%",
+                width: "120px",
+                height: "120px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                ...cardShadow
+              }}>
+                <Box
+                  component={"img"}
+                  src={marketing}
+                  alt="animación numero 3"
+                  sx={{ width: "80px" }}
+                />
+              </Box>
               <TextBody3
                 sx={{
                   textAlign: "center",
