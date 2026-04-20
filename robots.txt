@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://inpulse.com.ar/sitemap.xml
