@@ -9,11 +9,9 @@ import {
   TitleHero2,
 } from "@theme/textStyles";
 import { useTranslate } from "@shared/utils/translate";
-import { ColorButton } from "@shared/components/ColorButton";
 
 export const Hero: React.FC = () => {
   const theme = useTheme();
-  const isMini = useMediaQuery(theme.breakpoints.down("sm"));
   const isDesktopXL = useMediaQuery(theme.breakpoints.up(1700));
   const { t } = useTranslate();
   return (
@@ -146,7 +144,7 @@ export const Hero: React.FC = () => {
               delaySpeed={1500}
             />
           </Text1> */}
-          <ColorButton
+          {/* <ColorButton
             id="bt-hero-desktop-contact"
             type="greenButton"
             fetchingText=""
@@ -166,9 +164,9 @@ export const Hero: React.FC = () => {
             }}
             text={t.hero.button}
             onClick={() => (window.location.href = "/#contact")}
-          />
+          /> */}
         </Box>
-        {isMini && (
+        {/* {isMini && (
           <Box
             sx={{
               display: { xs: "flex", sm: "none" },
@@ -187,7 +185,7 @@ export const Hero: React.FC = () => {
               onClick={() => (window.location.href = "/#contact")}
             />
           </Box>
-        )}
+        )} */}
       </Box>
     </>
   );
