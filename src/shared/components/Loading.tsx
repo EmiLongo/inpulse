@@ -1,5 +1,5 @@
 import { Box, CircularProgress } from "@mui/material";
-import logo from "@img/inpulse_design_logo_isotipo.svg";
+import logo from "@img/inpulse_design_logo_isotipo_color.png";
 const Loading = () => {
   return (
     <Box
