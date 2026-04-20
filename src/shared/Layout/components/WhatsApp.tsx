@@ -1,5 +1,5 @@
 // src/shared/Layout/components/WhatsApp.tsx
-import { primaryColor } from '@/theme/theme';
+import { greyColor, primaryColor } from '@/theme/theme';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { Box, Fab } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
@@ -50,7 +50,7 @@ export const WhatsApp: React.FC = () => {
       bottom: `${bottomOffset}px`,
       // bottom: {xs: "1rem", md: "2rem", lg: "3rem"},
       right: {xs: "1rem", md: "2rem", lg: "3rem"}, 
-      zIndex: 100 
+      zIndex: 100           
     }}
     >
       <Fab aria-label="whatsapp"
@@ -59,11 +59,54 @@ export const WhatsApp: React.FC = () => {
           height: { xs: "4rem", md: "5rem", lg: "6rem" },
           padding: "1rem",
           backgroundColor: primaryColor[600], 
-          color: "white", 
-          "&:hover": { backgroundColor: primaryColor[800] } 
+          color: primaryColor[900], 
+          
+          display: "flex",
+          alignItems: "center",
+          background: `linear-gradient(to bottom, ${primaryColor[100]}, ${primaryColor[200]})`,
+          boxShadow: `
+          inset 0 0 0 4px transparent,
+          inset 0 0 0 4px transparent,
+          inset 0 0 0 4px ${primaryColor[200]}
+        `,
+          '& > span': {
+            backgroundImage: `linear-gradient(to right, ${greyColor[900]}, ${greyColor[950]})`,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+          },
+          "&:hover": {
+            background: `linear-gradient(to bottom, ${primaryColor[200]}, ${primaryColor[300]})`,
+          },
+          // Aplicamos los gradientes del stroke usando pseudo-elementos
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            borderRadius: "50%",
+            padding: "4px",
+            background: `
+              linear-gradient(to bottom,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0.35) 61%,
+                rgba(0, 0, 0, 0) 100%
+              ),
+              linear-gradient(to bottom,
+                rgba(255, 255, 255, 0.5) 0%, 
+                rgba(255, 255, 255, 0) 100%
+              ),
+              ${primaryColor[200]}
+            `,
+            WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            WebkitMaskComposite: "xor",
+            mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            maskComposite: "exclude",
+          },
         }}
       >
-        <WhatsAppIcon sx={{ fontSize: { xs: "1.5rem", md: "2rem", lg: "2.5rem" } }}/>
+        <WhatsAppIcon sx={{ fontSize: { xs: "2.2rem", md: "2.5rem", lg: "3rem" } }}/>
       </Fab>
     </Box>
   )
