@@ -77,7 +77,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
       {isMobile ? (
         <Box sx={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           <img src={ulie} alt="ulie" style={{ width: "100px", transform: "scaleX(-1)" }} />
-          <Text3 sx={{ textWrap: "balance", lineHeight: "1.7" }}>{t.contact.title}</Text3>
+          <Box>
+            <TextBody6>{t.contact.subtitle}</TextBody6>
+            <Text3 sx={{ textWrap: "balance", lineHeight: "1.7" }}>{t.contact.title}</Text3>
+          </Box>
         </Box>
       ) : (
         <Text1>{t.contact.title}</Text1>
@@ -92,7 +95,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
         <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: "1rem" }}>
           {!isMobile && <>
           <img src={ulie} alt="ulie" style={{ width: "160px", transform: "scaleX(-1)" }} />
-          <TextBody6>{t.contact.subtitle}</TextBody6></>}
+          <TextBody6>{t.contact.subtitle}</TextBody6></>
+          }
         </Box>
         <Box
           id="contact-form"
