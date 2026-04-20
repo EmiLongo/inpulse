@@ -167,24 +167,24 @@ export const Header: React.FC = () => {
                   color: "palette.grey[950]",
                   gap: "2rem",
                 }}>
-                  <Box 
-                  component={"img"}                  
-                  src={logoIsotipo}
-                  alt="Logo InPulse Design"
-                  height="30px"
-                  onClick={handleLogoClick}
-                  sx={{ cursor: 'pointer' }}
-                  />
                   <Box sx={{
                     display: 'flex', 
                     alignItems: 'center', 
                     justifyContent: 'end', 
                     borderRadius: "12px",
                     padding: "0 1rem 0 1.1rem",
-                    // paddingY: "0.5rem",
+                    paddingY: "0.5rem",
                     gap: "1rem",
                     ...glassEffect,
-                   }}>
+                  }}>
+                    <Box 
+                    component={"img"}                  
+                    src={logoIsotipo}
+                    alt="Logo InPulse Design"
+                    height="30px"
+                    onClick={handleLogoClick}
+                    sx={{ cursor: 'pointer', marginRight: "0.5rem" }}
+                    />
                     <IconButton
                       id='bt-navbar-mobile-change-lang'
                       aria-label="change language"
