@@ -12,22 +12,16 @@ import {
   useTheme,
   Typography,
 } from '@mui/material';
-import logoIsotipo from '@img/inpulse_design_logo_isotipo.svg';
+import logoIsotipo from '@img/inpulse_design_logo_isotipo_color.png';
 import inpulseLogo from "@img/inpulse_design_logo_blanco_color.svg";
 import TranslateIcon from '@mui/icons-material/Translate';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import { Title2, Title3 } from '@theme/textStyles';
+import { defaultFonts, Title2, Title4 } from '@theme/textStyles';
 import { useLanguageStore } from '@/stores/languageStore';
 import { useTranslate } from '@/shared/utils/translate';
 import { greyColor } from '@/theme/theme';
 
-export const menuItems = [
-  // { text: 'Melena de León', path: '/melena' },
-  // { text: 'Cordyceps Militaris', path: '/cordyceps' },
-  // { text: 'Reishi', path: '/reishi' },
-  // { text: 'Cola de Pavo', path: '/cola-pavo' },
-];
 type HeaderTranslation = {
   header: {
     [key: string]: string;
@@ -38,7 +32,7 @@ export const getInfoItems = (t: HeaderTranslation) => [
 // { text: 'Inicio', path: '#home' },
 { text: t.header.menuItem1, path: '#whatwedo' },
 { text: t.header.menuItem2, path: '#portfolio' },
-{ text: t.header.menuItem3, path: '#aboutus' },
+// { text: t.header.menuItem3, path: '#aboutus' },
 { text: t.header.menuItem4, path: '#contact' },
 ];
 
@@ -219,16 +213,6 @@ export const Header: React.FC = () => {
             ) : (
               // versión escritorio
               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'end', width: '100%', height: '100%', marginRight: {xs: "1rem", sm: "2rem", md: "64px"}, gap: "2rem" }}>
-                <Box 
-                  component={"img"}
-                  src={logoIsotipo}
-                  alt="Logo InPulse Design"
-                  height="30px"
-                  onClick={handleLogoClick}
-                  sx={{
-                    cursor: 'pointer',
-                  }}
-                />
                 <Box sx={{ 
                   display: 'flex', 
                   alignItems: 'center', 
@@ -254,9 +238,10 @@ export const Header: React.FC = () => {
                       component={"a"}
                       href={item.path}
                     >
-                      <Title3 sx={{
+                      <Title4 sx={{
                         color: palette.grey[50],
-                        fontWeight: 400,
+                        fontFamily: defaultFonts.family.textos,
+                        fontWeight: 300,
                         '&:hover': {
                           color: "primary.400",
                         },
@@ -265,9 +250,19 @@ export const Header: React.FC = () => {
                         padding: 0,
                       }}>
                         {item.text}
-                      </Title3>
+                      </Title4>
                     </Box>
                   ))}
+                  <Box 
+                  component={"img"}
+                  src={logoIsotipo}
+                  alt="Logo InPulse Design"
+                  height="30px"
+                  onClick={handleLogoClick}
+                  sx={{
+                    cursor: 'pointer',
+                  }}
+                />
                 </Box>
               </Box>
             )}
